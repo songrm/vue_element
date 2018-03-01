@@ -61,6 +61,21 @@ export const asyncRouterMap=[
 		meta:{role: ['admin','super_editor']},
 	},
 	{
+		path: '/icon',
+		name: 'icon08',
+		num_w:"10",
+		redirect: '/icon/index',
+		icon:'#icon-iconfontyouhuiquan',
+		hidden: true,
+		component: Layout,
+		children:
+		[
+			{ path: '/icon/index',name:'icon', num_w:"10-1",component: resolve=> {require(['../views/icon/index.vue'], resolve)} },
+
+		],
+		meta:{role: ['admin','super_editor']},
+	},
+	{
 		path: '/permission',
 		name: '权限',
 		num_w:"11",

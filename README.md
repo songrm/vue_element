@@ -1,30 +1,45 @@
-# vue_test
+# vue-element-master
 
-> A Vue.js project
+> A Vue-element project
 
-## Build Setup
+## 功能
+- 登录/注销
+- 权限验证
+- 动态侧边栏
+- 动态面包屑
+- 多种动态换肤
+- 富文本编辑器
+- Screenfull全屏
+- 列表拖拽
+- webicon图标
+- Dashboard
+- Echarts 图表
+- 404错误页面
+- 导出excel
+- 导出zip
+- Table example
+- 动态table example
+- 内联编辑table example
+- Form example
+- SplitPane
+- 加载loading
+- fullcalendar
 
-``` bash
-# install dependencies
-npm install
+## 后台使用 node.js+mongodb
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 开发
+```bash
+    # 克隆项目
+    git clone https://github.com/songrm/vue_element.git
 
-# build for production with minification
-npm run build
+    # 安装依赖
+    npm install
+    
+ 	# 本地需安装 mongodb
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+    # 本地开发 开启服务
+    npm run dev
 ```
+浏览器访问 http://localhost:8081
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
