@@ -1,0 +1,8 @@
+.todo-list{
+	padding: 0px;
+	li{list-style: none;height: 40px;line-height: 40px;}
+}
+.footer{
+	height: 40px;line-height: 40px;
+	.todo-count{color: #999;font-size: 12px;padding-right: 5px;}
+}

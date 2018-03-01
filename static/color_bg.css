@@ -1,0 +1,208 @@
+*{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;font-size: 14px;font-weight: 400;}
+body{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
+.bg-facebook {
+  background-color: #335397;
+  color: #fff
+}
+
+.bg-twitter {
+  background-color: #00c7f7;
+  color: #fff
+}
+
+.bg-google-plus {
+  background-color: #df4a32;
+  color: #fff
+}
+
+.bg-dark {
+  background-color: #030405!important;
+  color: #fff
+}
+
+.bg-dark a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-dark a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #19212d!important
+}
+
+.bg-dark a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #2e3344!important
+}
+
+.bg-white {
+  background-color: #fff!important;
+  color: #333
+}
+
+.bg-white a,.bg-white a:hover {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-white a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ebebeb!important
+}
+
+.bg-primary {
+  background-color: #01A4A4!important;
+  color: #fff
+}
+
+.bg-primary a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-primary a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #219790!important
+}
+
+.bg-primary a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1e8780!important
+}
+
+.bg-success {
+  background-color: #61AE24!important;
+  color: #fff
+}
+
+.bg-success a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-success a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #559920!important
+}
+
+.bg-success a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #49841b!important
+}
+
+.bg-info {
+  background-color: #00A1CB!important;
+  color: #fff
+}
+
+.bg-info a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-info a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #008db2!important
+}
+
+.bg-info a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007998!important
+}
+
+.bg-warning {
+  background-color: #F18D05!important;
+  color: #fff
+}
+
+.bg-warning a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-warning a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #d87e04!important
+}
+
+.bg-warning a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #bf7004!important
+}
+
+.bg-danger {
+  background-color: #E54028!important;
+  color: #fff
+}
+
+.bg-danger a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-danger a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #d92c17!important
+}
+
+.bg-danger a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ce2916!important
+}
+
+.bg-azure {
+  background-color: #00d5e6!important;
+  color: #fff
+}
+
+.bg-azure a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-azure a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #00bdcd!important
+}
+
+.bg-azure a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #00ecff!important
+}
+
+.bg-purple {
+  background-color: #967ADC!important;
+  color: #fff
+}
+
+.bg-purple a {
+  text-decoration: none;
+  color: #fff
+}
+
+.bg-purple a:focus,.bg-purple a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #876dc6!important
+}
+body,p,h1,h2,h3,h4,h5,h6,ul,li{margin: 0px;padding: 0px}
+.text-right{text-align: right;}
+.text-left{text-align: left;}
+.martop20{margin-top: 20px;}
+.marbottom20{margin-bottom: 20px;}
+.lable{padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);font-size: 13px;}

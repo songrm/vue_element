@@ -1,0 +1,15 @@
+.article{
+  color: #4a4a4a;
+  .lable_f .el-tag{margin-bottom: 20px;margin-right: 5px;}
+  .ark_list_m a{font-size: 14px; color: #4a4a4a;line-height: 20px;display: block;min-height: 20px;padding:10px 0px;border-bottom: 1px dashed #f0f0f0;}
+  .b_title{ font-size: 18px;font-weight: 700;line-height: 1.5;padding: 10px 0px;}
+  .c_title{ margin: 0 0 8px;  font-size: 13px;line-height: 24px;color: #333;}
+  .bolg{border-bottom: 1px solid #f0f0f0;padding-bottom: 20px;}
+  .b_tag{ display: inline-block;padding: 3px 6px;  margin-top: -1px;  max-width: 200px;  overflow: hidden;
+    text-overflow: ellipsis;white-space: nowrap;line-height: 1;vertical-align: middle;color: #ea6f5a!important;
+    border: 1px solid rgba(236,97,73,.7);border-radius: 3px;font-size: 12px;cursor: pointer;}
+  .b_tag:hover{ color: #ec6149;background-color: rgba(236,97,73,.05); border-color: #ec6149}
+  .b_time{ margin: 0px 10px;color: #b4b4b4;font-size: 12px;}
+  .art_t_p{ color: #999;font-size: 13px; height: 40px;line-height: 40px;}
+  .bolg_txt{font-size: 13px; color: #4a4a4a;line-height: 2;}
+}
