@@ -17,4 +17,7 @@ module.exports=function(apiRoutes){
 
   //网站模块
   apiRoutes.get('/menulist',Menu.list)
+  apiRoutes.get('/menuadd',Menu.menuadd)
+  apiRoutes.get('/menudet',Menu.det)
+  apiRoutes.get('/menudelete',Menu.delete)
 }

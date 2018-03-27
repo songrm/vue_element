@@ -20,7 +20,6 @@
 			return{
 
 			}
-
 		},
 		components: { navbar,appMain,sidebar },
 	  computed: {

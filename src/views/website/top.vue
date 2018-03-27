@@ -1,49 +1,140 @@
 <template>
   <div>
-    <el-alert title="webfont" type="error" description="设置头部导航，一级菜单、二级菜单" :closable="false">
+    <el-alert title="菜单导航；移动暂时不可用" type="error" description="设置头部导航，一级菜单、二级菜单；" :closable="false">
     </el-alert>
-    <el-row :gutter="20">
-      <el-col :span="12">
-        <el-button type="text" @click="add_menu()">添加</el-button>
-      </el-col>
-      <el-col :span="12">
-        <el-button type="text">提交</el-button>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      
-      <el-col :span="12">
-        <div class="">
-          <el-input v-for='(qd,index) in menu_data' v-model="qd.title" placeholder="请输入内容"></el-input>
-        </div>
-      </el-col>
-    </el-row>
+    <el-card class="box-card martop20">
+      <div slot="header" class="clearfix">
+        <span>菜单</span>
+        <el-button style="float: right; padding: 3px 0" type="text" @click="add_menu()">添加菜单</el-button>
+      </div>
+      <div class="mn_table">
+        <el-row class="mn_table_th">
+          <el-col :span="4">id编码</el-col>
+          <el-col :span="6">菜单名称</el-col>
+          <el-col :span="6">操作</el-col>
+        </el-row>
+        <el-row :gutter="20" v-for='(qd,index) in menu_data' class=" mn_table_td" :key='qd'>
+          <el-col :span="4">
+              <el-input v-model="qd._id" size="small" placeholder="请输入id;id不可重复" :disabled="true"></el-input>
+          </el-col>
+          <el-col :span="6">
+              <el-input v-model="qd._title" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="6">
+            <div class="" >
+              <el-button type="text" @click="sit_menu(qd._id,qd._title)">保存</el-button>
+              <el-button type="text" @click="delet_menu(qd._id,qd._title)">删除</el-button>
+              <el-button type="text">移动</el-button>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+
+    </el-card>
+
+    <div style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);margin-bottom:20px;">这里是 菜单展示</div>
+    <topmz></topmz>
+
   </div>
 </template>
 <script>
-
+import topmz from '@/components/menu/topmenu.vue'
   export default{
     name:"topmenu",
     data(){
       return{
-        menu_data:[
-          {
-            'id':0,
-            'title':'首页'
-          },
-        ]
+        menu_data:[]
       }
     },
+    components:{topmz},
     methods:{
-      add_menu(){
+      menu_fr(){
+        var self=this
         this.$axios.get('/menulist').then(function(response){
-          console.log(response.data)
+          self.menu_data=response.data.data
+          //console.log(response.data.data)
         })
-        this.menu_data.push({
-          "id":"2",
-          "title":''
+      },
+      sit_menu(num,txt){
+
+        var params={
+                _id:num,
+                _title:txt
+          }
+        var self=this
+        this.$axios.get('/menudet',{params: params}).then(function(response){
+          if(response.data.data=='success'){
+            self.$notify({
+              type:'success',
+              message: '保存成功',
+              duration: 2000
+            });
+          }else {
+            self.$notify({
+              type:'error',
+              message: '保存失败！！！',
+              duration: 2000
+            });
+          }
+        })
+      },
+      add_menu(){
+        // 添加模块
+        var num_xb=(this.menu_data.length+2);
+         this.menu_data.push({
+           '_id':num_xb,
+           '_title':''
+         })
+         var params={
+                 _id:num_xb,
+                 _title:''
+           }
+        var self=this
+         this.$axios.get('/menuadd',{params: params}).then(function(response){
+           if(response.data.data=='success'){
+             self.$notify({
+               type:'success',
+               message: ' 添加成功；id 不可重复',
+               duration: 2000
+             });
+           }else {
+             self.$notify({
+               type:'error',
+               message: '保存失败！！！',
+               duration: 2000
+             });
+           }
+         })
+      },
+      delet_menu(num,txt){
+        var self=this
+        this.$axios.get('/menudelete',{params: { _id:num}}).then(function(response){
+          if(response.data.data=='success'){
+            self.$notify({
+              type:'success',
+              message: ' 删除成功!!',
+              duration: 2000
+            });
+            self.menu_fr();//刷新列表
+          }else {
+            self.$notify({
+              type:'error',
+              message: '删除失败！！！',
+              duration: 2000
+            });
+          }
         })
       }
-    }
+    },
+    created(){
+      this.menu_fr()
+    },
   }
 </script>
+<style lang="scss">
+ .mn_table{
+   overflow: hidden;
+   .mn_table_td{padding:10px 0px 7px 1px;}
+   .mn_table_th{background-color: #6f7e95;height: 40px;line-height: 40px;color: #fff;padding-left: 15px;}
+ }
+</style>
