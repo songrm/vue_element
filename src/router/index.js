@@ -64,13 +64,13 @@ export const asyncRouterMap=[
 		path: '/website',
 		name: 'website',
 		num_w:"10",
-		redirect: '/icon/index',
+		redirect: '/website/top',
 		icon:'#icon-iconfontyouhuiquan',
 		hidden: true,
 		component: Layout,
 		children:
 		[
-			{ path: '/icon/index',name:'icon', num_w:"10-1",component: resolve=> {require(['../views/icon/index.vue'], resolve)} },
+			{ path: '/website/top',name:'topmenu', num_w:"10-1",component: resolve=> {require(['../views/website/top.vue'], resolve)} },
 
 		],
 		meta:{role: ['admin','super_editor']},

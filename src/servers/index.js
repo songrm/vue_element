@@ -2,6 +2,7 @@ var User=require('./controllers/user.js')
 
 var Power=require('./controllers/power.js')
 var Article=require('./controllers/article.js')
+var Menu=require('./controllers/menu.js')
 
 module.exports=function(apiRoutes){
 
@@ -14,4 +15,6 @@ module.exports=function(apiRoutes){
   apiRoutes.get('/articleedit',Article.det)
   apiRoutes.get('/articledel',Article.delete)
 
+  //网站模块
+  apiRoutes.get('/menulist',Menu.list)
 }
