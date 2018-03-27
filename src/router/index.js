@@ -61,8 +61,8 @@ export const asyncRouterMap=[
 		meta:{role: ['admin','super_editor']},
 	},
 	{
-		path: '/icon',
-		name: 'icon08',
+		path: '/website',
+		name: 'website',
 		num_w:"10",
 		redirect: '/icon/index',
 		icon:'#icon-iconfontyouhuiquan',
