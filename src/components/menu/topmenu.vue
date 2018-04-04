@@ -31,6 +31,7 @@ export default{
 <style lang="scss">
 .nv_body{
   height: 100px;line-height: 100px;background-color: rgba(255,255,255,0.3);box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  .nv_body_s{ display: inline-block; padding: 0px 15px;}
+  .nv_body_s{ display: inline-block; padding: 0px 15px;vertical-align: top;}
+  .nv_body_s:hover{cursor: pointer;background-color: #cc2525;color: #fff;}
 }
 </style>

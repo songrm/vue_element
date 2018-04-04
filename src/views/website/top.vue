@@ -6,6 +6,7 @@
       <div slot="header" class="clearfix">
         <span>菜单</span>
         <el-button style="float: right; padding: 3px 0" type="text" @click="add_menu()">添加菜单</el-button>
+        <el-button style="float: right; margin:0px 20px;padding: 3px 0" type="text" @click="look_show('topmz')">预览</el-button>
       </div>
       <div class="mn_table">
         <el-row class="mn_table_th">
@@ -21,7 +22,7 @@
               <el-input v-model="qd._title" size="small" placeholder="请输入内容"></el-input>
           </el-col>
           <el-col :span="6">
-            <div class="" >
+            <div class="">
               <el-button type="text" @click="sit_menu(qd._id,qd._title)">保存</el-button>
               <el-button type="text" @click="delet_menu(qd._id,qd._title)">删除</el-button>
               <el-button type="text">移动</el-button>
@@ -32,17 +33,31 @@
 
     </el-card>
 
-    <div style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);margin-bottom:20px;">这里是 菜单展示</div>
-    <topmz></topmz>
+    <div style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);margin-bottom:20px;">可预览</div>
+
+    <!-- <topmz></topmz> -->
+    <component :is="item.component"  v-for="item in allComponents"></component>
+    <el-card class="box-card martop20">
+      <div slot="header" class="clearfix">
+        <span>底部版权</span>
+      </div>
+      <div class="mn_table">
+        <el-input v-model="footer_bq" placeholder="底部版权"></el-input>
+      </div>
+
+    </el-card>
 
   </div>
 </template>
 <script>
+
 import topmz from '@/components/menu/topmenu.vue'
   export default{
     name:"topmenu",
     data(){
       return{
+        allComponents:[],
+        footer_bq:'',
         menu_data:[]
       }
     },
@@ -54,6 +69,15 @@ import topmz from '@/components/menu/topmenu.vue'
           self.menu_data=response.data.data
           //console.log(response.data.data)
         })
+      },
+      look_show(name){
+        console.log(this.allComponents)
+        this.allComponents.splice(0,this.allComponents.length)
+        console.log(this.allComponents)
+        this.allComponents.push({
+         component: name
+       })
+
       },
       sit_menu(num,txt){
 

@@ -15,12 +15,6 @@
   </el-col>
 </el-row>
 
-
-
-
-
-
-
 </template>
 <script>
   export default{

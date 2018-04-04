@@ -28,6 +28,7 @@
     "mongoose": "^5.0.3",
     "net": "^1.0.2",
     "nprogress": "^0.2.0",
+    "particles.js": "^2.0.0",
     "sortablejs": "^1.7.0",
     "tls": "0.0.1",
     "vue": "^2.2.6",

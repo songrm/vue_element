@@ -71,6 +71,7 @@ export const asyncRouterMap=[
 		children:
 		[
 			{ path: '/website/top',name:'topmenu', num_w:"10-1",component: resolve=> {require(['../views/website/top.vue'], resolve)} },
+			{ path: '/website/home',name:'home', num_w:"10-11",component: resolve=> {require(['../views/website/home.vue'], resolve)} },
 
 		],
 		meta:{role: ['admin','super_editor']},

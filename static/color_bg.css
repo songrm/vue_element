@@ -1,5 +1,6 @@
 *{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;font-size: 14px;font-weight: 400;}
 body{-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
+input,textarea{border: 0px;outline: 0px;}
 .bg-facebook {
   background-color: #335397;
   color: #fff
