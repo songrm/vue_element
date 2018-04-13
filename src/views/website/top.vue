@@ -12,6 +12,7 @@
         <el-row class="mn_table_th">
           <el-col :span="4">id编码</el-col>
           <el-col :span="6">菜单名称</el-col>
+          <el-col :span="6">选择模版</el-col>
           <el-col :span="6">操作</el-col>
         </el-row>
         <el-row :gutter="20" v-for='(qd,index) in menu_data' class=" mn_table_td" :key='qd'>
@@ -21,6 +22,7 @@
           <el-col :span="6">
               <el-input v-model="qd._title" size="small" placeholder="请输入内容"></el-input>
           </el-col>
+          <el-col :span="6">选择模版</el-col>
           <el-col :span="6">
             <div class="">
               <el-button type="text" @click="sit_menu(qd._id,qd._title)">保存</el-button>
@@ -30,7 +32,6 @@
           </el-col>
         </el-row>
       </div>
-
     </el-card>
 
     <div style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);margin-bottom:20px;">可预览</div>
@@ -42,32 +43,67 @@
         <span>底部版权</span>
       </div>
       <div class="mn_table">
-        <el-input v-model="footer_bq" placeholder="底部版权"></el-input>
+        <el-input v-model="footer_title" placeholder="站点描述"></el-input>
       </div>
-
+      <div class="mn_table">
+        <el-input v-model="footer_record" placeholder="底部版权"></el-input>
+      </div>
+      <div class="mn_table">
+        <el-input v-model="footer_copy" placeholder="公安备案"></el-input>
+      </div>
+      <el-button type="primary" @click="save_e()">修改</el-button>
     </el-card>
-
+    <footone></footone>
   </div>
 </template>
 <script>
 
 import topmz from '@/components/menu/topmenu.vue'
+import footone from '@/components/menu/footone.vue'
   export default{
     name:"topmenu",
     data(){
       return{
         allComponents:[],
         footer_bq:'',
-        menu_data:[]
+        menu_data:[],
+        footer_id:'1',
+        footer_title:'',
+        footer_copy:'',
+        footer_record:''
       }
     },
-    components:{topmz},
+    components:{topmz,footone},
     methods:{
       menu_fr(){
         var self=this
         this.$axios.get('/menulist').then(function(response){
           self.menu_data=response.data.data
           //console.log(response.data.data)
+        })
+      },
+      save_f(){
+        //添加底部导航
+        var params={
+                _id:this.footer_id,
+                _title:this.footer_title,
+                _copyright:this.footer_copy,
+                _record:this.footer_record
+          }
+        this.$axios.get('/footadd',{params: params}).then(function(response){
+          console.log(response.data.data)
+        })
+      },
+      save_e(){
+        //修改底部导航
+        var params={
+                _id:this.footer_id,
+                _title:this.footer_title,
+                _copyright:this.footer_copy,
+                _record:this.footer_record
+          }
+        this.$axios.get('/footdet',{params: params}).then(function(response){
+          console.log(response.data.data)
         })
       },
       look_show(name){

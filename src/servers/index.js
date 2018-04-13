@@ -3,6 +3,7 @@ var User=require('./controllers/user.js')
 var Power=require('./controllers/power.js')
 var Article=require('./controllers/article.js')
 var Menu=require('./controllers/menu.js')
+var Footer=require('./controllers/footer.js')
 
 module.exports=function(apiRoutes){
 
@@ -20,4 +21,11 @@ module.exports=function(apiRoutes){
   apiRoutes.get('/menuadd',Menu.menuadd)
   apiRoutes.get('/menudet',Menu.det)
   apiRoutes.get('/menudelete',Menu.delete)
+
+  //footer
+  apiRoutes.get('/footlist',Footer.list)
+  apiRoutes.get('/footadd',Footer.footeradd)
+  apiRoutes.get('/footdet',Footer.det)
+  
+
 }

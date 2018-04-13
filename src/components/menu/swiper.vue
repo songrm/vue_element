@@ -80,7 +80,6 @@
     					<p class="text-xs-small mb5"><strong class="text-switch">Phone:</strong> +1 212-249-2390</p>
     					<p class="text-xs-small mb5"><strong class="text-switch">Fax:</strong> +1 112-444-2390</p>
             </div>
-
           </el-col>
           <el-col :xs="24" :sm="12" :md="14" :lg="12" class="">
             <div class="form-group">
@@ -90,7 +89,6 @@
             <div class="">
               <a class="sub_tj">提交</a>
             </div>
-
           </el-col>
         </el-row>
     </div>
@@ -98,7 +96,6 @@
 </template>
 <script>
 import particles from 'particles.js'
-
 export default{
     name:"swiper",
     data(){
@@ -136,9 +133,7 @@ export default{
   .h01_ju{text-align: left;margin: 10px 20% 10px 10%;}
 }
 .text-center {text-align: center;}
-.text-xs-small {margin-bottom: 5px;
-	font-size: 13px;color: #e2e2e2;
-}
+.text-xs-small {margin-bottom: 5px;font-size: 13px;color: #e2e2e2;}
 .bit_center{width: 90%;margin:0px auto;min-height: 150px;}
 .bit_cle{color: #fff;font-size: 17px;margin-bottom: 10px}
 .bg_cont{background: linear-gradient(to right, #3f2856 0%, #17181b 35%, #1f1f2d 68%, #1c072f 100%);position: relative;padding: 80px 80px 100px 80px;overflow: hidden;}
