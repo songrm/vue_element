@@ -1,10 +1,11 @@
 <template>
   <div>
+    
     <el-row>
       <el-col :span="8">
         <span>页面路径</span>
         <p>首页</p>
-        <p>关于我们</p>      
+        <p>关于我们</p>
       </el-col>
       <el-col :span="16">
         <span>页面</span>
@@ -48,7 +49,6 @@ export default{
       }
     },
     methods:{
-
     },
 }
 </script>
