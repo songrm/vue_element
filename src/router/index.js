@@ -209,7 +209,6 @@ export const asyncRouterMap=[
 		[
 			{ path: '/404',name:'404', num_w:"6-1",component: resolve=> {require(['../views/404/404.vue'], resolve)} },
 		],
-
 		meta:{role: ['admin','super_editor']},
 	}
 ]

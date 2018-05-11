@@ -1,5 +1,12 @@
 <template>
   <div>
+
+    <div class="hello">
+      <button @click="showToast">按钮</button>
+    </div>
+
+
+
       <div class="" @click='dinaw()'>
         点击我0
       </div>
@@ -171,7 +178,10 @@
   </div>
 </template>
 <script>
+  import Vue from 'vue';
   import { mapGetters} from 'vuex'
+  import toast from '@/components/js/to.js';
+  Vue.prototype.$toast = toast;
   // import list from '@/servers/controllers/user.js'
   export default{
     name:'perm',
@@ -226,6 +236,10 @@
         }).catch(function (error) {
           console.log(error);
         });
+      },
+      showToast(){
+        this.$toast('新内容',2000,{color:'#F38181',backgroundColor:'#FEFAEC'})
+        //this.$toast();
       }
     },
     created(){
@@ -241,6 +255,7 @@
         return class_tr[a]
       }
     }
+    
   }
 </script>
 <style rel="stylesheet/css" lang="css" scoped>
