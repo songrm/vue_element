@@ -3,7 +3,6 @@
     <span v-for='(qd,index) in fore' class="nv_body_s">
         {{qd._record}}{{qd._copyright}}
     </span>
-
   </div>
 </template>
 <script>
@@ -20,7 +19,6 @@ export default{
         var self=this
         this.$axios.get('/footlist').then(function(response){
           self.fore=response.data.data
-          //self.copy=response.data.data._copyright
           //console.log(response.data.data)
         })
       },
