@@ -23,13 +23,13 @@ export default{
 <style>
  .toast{
     position: fixed;
-    right: 20px;
+    right: 10px;
     transform: translate(-50%, 0);
     margin-top: 5rem;
     background: #000000;
     line-height: 0.7rem;
     color: #FFFFFF;
     padding: 1rem; top: 20px;width: 10em;
-    border-radius: 0.2rem;
+    border-radius: 0.2rem;box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 </style>
