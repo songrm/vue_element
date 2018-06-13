@@ -2,11 +2,16 @@
   <div>
 
     <div class="hello">
+<<<<<<< HEAD
       <button @click="showToast">按钮</button>
     </div>
 
 
 
+=======
+      <button @click="showToast">自定义组件提示框调用</button>
+    </div>
+>>>>>>> master
       <div class="" @click='dinaw()'>
         点击我0
       </div>
@@ -255,7 +260,11 @@
         return class_tr[a]
       }
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> master
   }
 </script>
 <style rel="stylesheet/css" lang="css" scoped>
