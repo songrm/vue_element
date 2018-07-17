@@ -41,24 +41,24 @@ export default new Router(
 	}
 );
 
-//异步挂载路由。 判断权限加载路由表
+// 异步挂载路由。 判断权限加载路由表
 
-export const asyncRouterMap=[
+export const asyncRouterMap = [
 	{
-		path: '/icon',
-		name: 'icon',
-		num_w:"4",
-		redirect: '/icon/index',
-		icon:'#icon-chanpin2',
-		hidden: true,
-		component: Layout,
-		children:
-		[
-			{ path: '/icon/index',name:'icon', num_w:"4-1",component: resolve=> {require(['../views/icon/index.vue'], resolve)} },
+    path: '/icon',
+    name: 'icon',
+    num_w: '4',
+    redirect: '/icon/index',
+    icon: '#icon-chanpin2',
+    hidden: true,
+    component: Layout,
+    children:
+    [
+			{ path: '/icon/index',name: 'icon', num_w :"4-1 ",component: resolve=> {require(['../views/icon/index.vue'], resolve)} },
 
 		],
 
-		meta:{role: ['admin','super_editor']},
+    meta: {role: ['admin', 'super_editor']},
 	},
 	{
 		path: '/website',
@@ -91,27 +91,28 @@ export const asyncRouterMap=[
 		],
 
 		meta:{role: ['admin','super_editor']},
-	},
+  },
 	{
 		path: '/group',
 		name: '组件',
-		num_w:"9",
-		redirect: '/group/button',
-		icon:'#icon-h2',
-		hidden: true,
-		component: Layout,
-		children:
-		[
-			{ path: '/group/button',name:'button', num_w:"9-1",component: resolve=> {require(['../views/group/button'], resolve)} },
-			{ path: '/group/steps',name:'steps', num_w:"9-2",component: resolve=> {require(['../views/group/steps'], resolve)} },
-			{ path: '/group/widgets',name:'widgets', num_w:"9-3",component: resolve=> {require(['../views/group/widgets'], resolve)} },
+		num_w: '9',
+    redirect: '/group/button',
+    icon: '#icon-h2',
+    hidden: true,
+    component: Layout,
+    children:
+[
+			{path: '/group/button', name : 'button', num_w:"9-1",component: resolve=> {require(['../views/group/button'], resolve)} },
+			{path: '/group/steps', name:'steps', num_w:"9-2",component: resolve=> {require(['../views/group/steps'], resolve)} },
+			{path: '/group/widgets', name:'widgets', num_w:"9-3",component: resolve=> {require(['../views/group/widgets'], resolve)} },
 			{ path: '/group/switch',name:'switch', num_w:"9-4",component: resolve=> {require(['../views/group/switch'], resolve)} },
 			{ path: '/group/fullcalendar',name:'fullcalendar', num_w:"9-5",component: resolve=> {require(['../views/group/fullcalendar'], resolve)} },
 			{ path: '/group/upload',name:'upload', num_w:"9-6",component: resolve=> {require(['../views/group/upload'], resolve)} },
 			{ path: '/group/goback',name:'返回顶部', num_w:"9-7",component: resolve=> {require(['../views/group/goback'], resolve)} },
-			{ path: '/group/model',name:'模态框', num_w:"9-8",component: resolve=> {require(['../views/group/model'], resolve)} },
+			{ path: '/group/model',name:'模态框', num_w:"9-8",component: resolve => {require(['../views/group/model'], resolve)} },
+			{ path: '/group/zuj',name:'组件', num_w:"9-10",component: resolve => {require(['../views/group/zujian'], resolve)} },
 
-		],
+],
 
 		meta:{role: ['admin','super_editor']},
 	},

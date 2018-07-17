@@ -127,6 +127,7 @@ import Sortable from 'sortablejs'
         var el=$('.ques_all .a_n_mk .a_n_mk01 .a_n_m')[0]
         for (var i = 0; i < $('.ques_all .a_n_mk .a_n_mk01 .a_n_m').length; i++) {
           this.sortable = Sortable.create($('.ques_all .a_n_mk .a_n_mk01 .a_n_m')[i])
+          console.log($('.ques_all .a_n_mk .a_n_mk01 .a_n_m')[i])
         }
 
         // this.sortable = Sortable.create(el)
@@ -150,7 +151,7 @@ import Sortable from 'sortablejs'
     }
   }
 </script>
-<style rel="stylesheet/css" lang="css" scoped>
+<style rel="stylesheet/css" lang="css">
 .a_n_mk{background-color: #fff;border:1px solid #e8e8e8;color: #4a4a4a;margin-bottom: 15px;}
 .a_n_mk01{padding:20px;font-size: 12px;}
 .a_n_mk_b{height: 50px; background-color: #fff;line-height: 50px;color:#4a4a4a;font-size: 12px;padding-left: 55px;padding-right: 147px;border-top: 1px solid #e8e8e8;}

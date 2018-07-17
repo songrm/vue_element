@@ -13,6 +13,7 @@
               </el-col>
               <el-col :span="8">
                 <el-button type="primary" size="medium" @click='spus'>搜索</el-button>
+                <el-button type="primary" size="medium" @click='spus_add'>测试添加</el-button>
               </el-col>
             </el-row>
           </div>
@@ -28,7 +29,7 @@
             <el-table-column  fixed="right"  label="操作"  width="150">
               <template scope="scope">
                 <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                <el-button type="text" size="small">编辑</el-button>
+                <el-button type="text" size="small" @click="biji(scope.row)">编辑</el-button>
                 <el-button type="text" size="small" @click='delet_art(scope.row)'>删除</el-button>
               </template>
             </el-table-column>
@@ -58,6 +59,18 @@
       </el-card>
     </el-col>
   </el-row>
+  <el-dialog title="提示" :visible.sync="dialogVisible"  width="30%">
+    <span>{{tishi}}</span>
+
+    <span slot="footer" class="dialog-footer" v-if="foot=='xiugai'">
+      <el-button @click="dialogVisible = false">取 消--xiugai</el-button>
+      <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    </span>
+    <span slot="footer" class="dialog-footer" v-if="foot=='look'">
+      <el-button @click="dialogVisible = false">取 消 -look</el-button>
+      <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    </span>
+  </el-dialog>
 </div>
 </template>
 <script>
@@ -70,7 +83,10 @@ const data=[
     name:'article',
     data(){
       return{
-        article_data:[]
+        article_data:[],
+        dialogVisible: false,
+        tishi:'',
+        foot:''
       }
     },
     methods:{
@@ -124,6 +140,17 @@ const data=[
               self.$message.error('删除失败，请检查错误信息');
             }
           })
+        },
+        biji(s){
+          this.dialogVisible=true;
+          this.foot='xiugai';
+          // console.log(s._name)
+          this.tishi=s._name;
+        },
+        spus_add(){
+          this.dialogVisible=true;
+          this.tishi='测试弹出框——底部共用';
+          this.foot='look';
         }
     },
     created(){
