@@ -5,11 +5,16 @@
       <button @click="showToast">按钮</button>
     </div>
 
+    <!-- 子组件、父组件 -->
+    
+    <ch @start = 'start' v-for="a in 2" :key="a"/>
+    <!-- <ch @ievent = "ievent" /> -->
 
+    <div class="" @click='dinaw()'>
+      点击我0
+    </div>
+    
 
-      <div class="" @click='dinaw()'>
-        点击我0
-      </div>
     <el-card :body-style="{ padding: '10px 20px' }">
       <el-tabs v-model="activeName">
         <el-tab-pane label="权限控制" name="first">
@@ -79,7 +84,7 @@
                       :value="item.value">
                   </el-option>
                 </el-select>
-                <el-select v-model="value5" clearable placeholder="请选择角色" size="medium"style="width:20%">
+                <el-select v-model="value5" clearable placeholder="请选择角色" size="medium" style="width:20%">
                   <el-option
                       v-for="item in options2"
                       :key="item.value"
@@ -87,7 +92,6 @@
                       :value="item.value">
                   </el-option>
                 </el-select>
-
               </div>
             </el-col>
             <el-col :span='20' class='marbottom20'>
@@ -96,7 +100,6 @@
             <el-col :span='20'>
               <el-button type="primary" size="medium">发送</el-button>
             </el-col>
-
           </el-row>
         </el-tab-pane>
         <el-tab-pane label="权限分配02" name="five">
@@ -178,84 +181,84 @@
   </div>
 </template>
 <script>
-  import Vue from 'vue';
-  import { mapGetters} from 'vuex'
-  import toast from '@/components/js/to.js';
-  Vue.prototype.$toast = toast;
-  // import list from '@/servers/controllers/user.js'
-  export default{
-    name:'perm',
-    data(){
-      return{
-        activeName:'first',
-        data_ert:[],
-        value4:'',
-        value5:'',
-        per_z:1,
-        radio:1,
-        value3:true,
-        options:[{value:'产品部',lable:'1'},{value:'交易部',lable:'2'},{value:'清算部',lable:'3'}],
-        options2:[{value:'产品部',lable:'1'},{value:'管理员',lable:'2'},{value:'只读权限',lable:'3'}]
+  import Vue from 'vue'
+  // import { mapGetters} from 'vuex'
+  import ch from './ch'
+  import toast from '@/components/js/to.js'
+Vue.prototype.$toast = toast
+
+export default{
+    name: 'perm',
+    data () {
+      return {
+        activeName: 'first',
+        data_ert: [],
+        value4: '',
+        value5: '',
+        time: '',
+        per_z: 1,
+        radio: 1,
+        value3: true,
+        options: [{value: '产品部', lable: '1'}, {value: '交易部', lable: '2'}, {value: '清算部', lable: '3'}],
+        options2: [{value: '产品部', lable: '1'}, {value: '管理员', lable: '2'}, {value: '只读权限', lable: '3'}]
       }
     },
-    computed:{
+    components: {ch},
+    computed: {
       ...mapGetters([
         'getuser',
         'roles'
-      ]),
+      ])
     },
-    methods:{
-      resq(){
-
-        var _self=this;
-        // this.$axios.get('/ceshi/pers').then(function(response){
-        //   _self.data_ert=response.data.data.projects;
-        //
-        // }).catch(function (error) {
-        //   console.log(error);
-        // });
-        this.$axios.get('/permissionlist').then(function(response){
-          console.log(response.data.data)
-          _self.data_ert=response.data.data;
-
-        }).catch(function (error) {
-          console.log(error);
-        });
-      },
-      add_cy(){
-        this.per_z=this.per_z+1
-      },
-      dinaw(){
-        // this.$http.get('http://127.0.0.1:8087/api/books').then((data) => {
-        //           // 由于请求成功返回的是Promise对象，我们要从data.body.data拿到books数组userlist
-        //             console.log(data)
-        //       })
-        this.$axios.get('/permissionlist').then(function(response){
-          console.log(response)
-
-        }).catch(function (error) {
-          console.log(error);
-        });
-      },
-      showToast(){
-        this.$toast('新内容',2000,{color:'#F38181',backgroundColor:'#FEFAEC'})
-        //this.$toast();
+    watch: {
+      time (val) {
+        console.log(val)
       }
     },
-    created(){
-      this.resq();
+    methods: {
+      start (...data) {
+        alert(data)
+        console.log('allData:', data)// data为包含传过来所有数据的数组，第一个元素是对象，第二个元素是字符串
+        this.time = data[0]
+      },
+      resq () {
+        var _self = this
+  
+        this.$axios.get('/permissionlist').then(function (response) {
+          console.log(response.data.data)
+          _self.data_ert = response.data.data
+        }).catch(function (error) {
+          console.log(error)
+        })
+      },
+      add_cy () {
+        this.per_z = this.per_z + 1
+      },
+      dinaw () {
+        this.$axios.get('/permissionlist').then(function (response) {
+          console.log(response)
+        }).catch(function (error) {
+          console.log(error)
+        })
+      },
+      showToast () {
+        this.$toast('新内容', 2000, {color: '#F38181', backgroundColor: '#FEFAEC'})
+      }
     },
-    filters:{
-      class_f(a){
-        const class_tr={
-          department1:'depart1',
-          department2:'depart2',
-          department3:'depart3'
+    created () {
+      this.resq()
+    },
+    filters: {
+      class_f (a) {
+        const class_tr = {
+          department1: 'depart1',
+          department2: 'depart2',
+          department3: 'depart3'
         }
         return class_tr[a]
       }
     }
-    
+  
   }
 </script>
 <style rel="stylesheet/css" lang="css" scoped>

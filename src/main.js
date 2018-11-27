@@ -16,7 +16,7 @@ import 'jquery'
 import fullcalendar from 'vue-fullcalendar'
 
 import VueResource from 'vue-resource'
-Vue.use(VueResource)  
+Vue.use(VueResource)
 
 // Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)

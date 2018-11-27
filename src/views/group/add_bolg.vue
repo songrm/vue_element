@@ -53,53 +53,42 @@
 
 <script>
 import Tinymce from '@/components/Tinymce'
-  export default{
-    name:'add_bolg',
-    data(){
-      return{
-        bolg_time:'',
-        bolg_title:'',
-        bolg_id:'',
-        bolg_type:'',
-        bolg_label:'',
-        bolg_author:'wanwan',
-        value:'',
-        content:''
-      }
-    },
-    components:{Tinymce},
-    methods:{
-      tij:function(){
-        var params={
-                _id:this.bolg_id,
-                _name:this.bolg_title,
-                _context:this.content,
-                _author:this.bolg_author,
-                _date:this.bolg_time,
-                _type:this.bolg_type,
-                _lable:this.bolg_label,
-          }
-          //console.log(params)
-        this.$axios.get('/articleadd',{params: params}).then(function(response){
-          console.log(response.data)
-        })
-
-        // this.$axios({
-        //   method: 'get',
-        //   url: '/articleadd',
-        //   body: params
-        // }).then(function(response){
-        //   console.log(response.data)
-        //
-        // }).catch(function(error) {
-        //     alert(error);
-        // });
-      }
-    },
-    created(){
-
+export default{
+  name: 'add_bolg',
+  data () {
+    return {
+      bolg_time: '',
+      bolg_title: '',
+      bolg_id: '',
+      bolg_type: '',
+      bolg_label: '',
+      bolg_author: 'wanwan',
+      value: '',
+      content: ''
     }
+  },
+  components: {Tinymce},
+  methods: {
+    tij: function () {
+      var params = {
+        _id: this.bolg_id,
+        _name: this.bolg_title,
+        _context: this.content,
+        _author: this.bolg_author,
+        _date: this.bolg_time,
+        _type: this.bolg_type,
+        _lable: this.bolg_label
+      }
+          // console.log(params)
+      this.$axios.get('/articleadd', {params: params}).then(function (response) {
+        console.log(response.data)
+      })
+    }
+  },
+  created () {
+
   }
+}
 </script>
 <style lang="scss">
  @import 'article.scss';

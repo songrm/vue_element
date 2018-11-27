@@ -53,7 +53,7 @@
           <span>排行榜</span>
         </div>
         <div class='ark_list_m'>
-          <a href="javascript:;" v-for='tit in article_data'>{{tit._name}}</a>
+          <a href="javascript:;" v-for='tit in article_data' :key="tit">{{tit._name}}</a>
         </div>
       </el-card>
     </el-col>
@@ -61,88 +61,89 @@
 </div>
 </template>
 <script>
-const data=[
-  {'title':'today home1',"type":'java',"lable":'重要',"time":'2012-09-08'},
-  {'title':'today home2',"type":'java',"lable":'一般',"time":'2012-09-08'},
-  {'title':'today home3',"type":'java',"lable":'删除',"time":'2012-09-08'}
+const data = [
+  {'title': 'today home1', 'type': 'java', 'lable': '重要', 'time': '2012-09-08'},
+  {'title': 'today home2', 'type': 'java', 'lable': '一般', 'time': '2012-09-08'},
+  {'title': 'today home3', 'type': 'java', 'lable': '删除', 'time': '2012-09-08'}
 ]
-  export default{
-    name:'article',
-    data(){
-      return{
-        article_data:[]
-      }
-    },
-    methods:{
-        handleClick(obj){
-          //查看事件
-          this.$router.push({
-              path: '/group/bolg_list',name:'bolg_list',
-                params: obj,
-                query: {
-                  id:obj._id
-                }
-            })
-
-        },
-        res_b(){
-          //加载列表事件
-          var self=this
-          this.$axios.get('/articlelist').then(function(response){
-            self.article_data=response.data.data
-          })
-        },
-        spus(){
-          //搜索事件
-          var params={
-                  _id:'001'
-            }
-          this.$axios.get('/articleedit',{params: params}).then(function(response){
-            console.log(response.data)
-
-          })
-        },
-        delet_art(obj){
-          //删除事件
-          console.log('删除==='+obj)
-          var params={
-                  _id:obj._id
-            }
-          var self=this
-          this.$axios.get('/articledel',{params: params}).then(function(response){
-            console.log(response.data)
-            if (response.data.success==1) {
-              //删除成功
-              self.res_b();
-              self.$message({
-                  message: '删除成功',
-                  type: 'success'
-                });
-            }
-            else {
-              //删除失败
-              self.$message.error('删除失败，请检查错误信息');
-            }
-          })
-        }
-    },
-    created(){
-      this.res_b()
-    },
-    filters:{
-      label_e(a){
-        const lable={
-          重要:'success',
-          一般:'warning',
-          删除:'danger'
-        }
-        return lable[a]
-      }
-    },
-    watch:{
-      '$route': 'res_b'
+export default{
+  name: 'article',
+  data () {
+    return {
+      article_data: []
     }
+  },
+  methods: {
+    handleClick (obj) {
+          // 查看事件
+      this.$router.push({
+        path: '/group/bolg_list',
+        name: 'bolg_list',
+        params: obj,
+        query: {
+          id: obj._id
+        }
+      })
+    },
+    res_b () {
+          // 加载列表事件
+      var self = this
+      this.$axios.get('/articlelist').then(function (response) {
+        self.article_data = response.data.data
+      })
+      this.$axios.get('/auth/token').then(function (response) {
+        self.article_data = response.data.data
+      })
+    },
+    spus () {
+          // 搜索事件
+      var params = {
+        _id: '001'
+      }
+      this.$axios.get('/articleedit', {params: params}).then(function (response) {
+        console.log(response.data)
+      })
+    },
+    delet_art (obj) {
+          // 删除事件
+      console.log('删除===' + obj)
+      var params = {
+        _id: obj._id
+      }
+      var self = this
+      this.$axios.get('/articledel', {params: params}).then(function (response) {
+        console.log(response.data)
+        if (response.data.success === 1) {
+              // 删除成功
+          self.res_b()
+          self.$message({
+            message: '删除成功',
+            type: 'success'
+          })
+        } else {
+              // 删除失败
+          self.$message.error('删除失败，请检查错误信息')
+        }
+      })
+    }
+  },
+  created () {
+    this.res_b()
+  },
+  filters: {
+    label_e (a) {
+      const lable = {
+        重要: 'success',
+        一般: 'warning',
+        删除: 'danger'
+      }
+      return lable[a]
+    }
+  },
+  watch: {
+    '$route': 'res_b'
   }
+}
 </script>
 <style lang="scss">
  @import 'article.scss';

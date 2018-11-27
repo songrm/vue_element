@@ -7,25 +7,25 @@
 </template>
 <script>
 export default{
-    name:"footone",
-    data(){
-      return{
-        fore:[],
-        copy:''
-      }
-    },
-    methods:{
-      menu_fr(){
-        var self=this
-        this.$axios.get('/footlist').then(function(response){
-          self.fore=response.data.data
-          //console.log(response.data.data)
-        })
-      },
-    },
-    created(){
-      this.menu_fr()
-    },
+  name: 'footone',
+  data () {
+    return {
+      fore: [],
+      copy: ''
+    }
+  },
+  methods: {
+    menu_fr () {
+      var self = this
+      this.$axios.get('/footlist').then(function (response) {
+        self.fore = response.data.data
+          // console.log(response.data.data)
+      })
+    }
+  },
+  created () {
+    this.menu_fr()
+  }
 }
 </script>
 <style lang="scss">

@@ -91,84 +91,81 @@
 </template>
 <script>
   export default{
-    name:"eform",
-    data(){
-      var validatepass=(rule,value,callback)=>{
-
-        if(value==""){
+    name: 'eform',
+    data () {
+      var validatepass = (rule, value, callback) => {
+        if (value === '') {
           callback(new Error('请输入密码'))
-        }else{
-          callback();
+        } else {
+          callback()
         }
-      };
-      var validatecheckpwd=(rule,value,callback)=>{
-        if(value==""){
+      }
+      var validatecheckpwd = (rule, value, callback) => {
+        if (value === '') {
           callback(new Error('不能为空'))
-        }else if (value !== this.formrule.pwd) {
+        } else if (value !== this.formrule.pwd) {
           callback(new Error('两次输入密码不一致'))
         }
-      };
-      var validateage=(rule,value,callback)=>{
-        var re=/^100$|^(\d|[1-9]\d)(\.\d+)*$/;
+      }
+      var validateage = (rule, value, callback) => {
+        var re = /^100$|^(\d|[1-9]\d)(\.\d+)*$/
 
-        if(value==''){
+        if (value === '') {
           callback(new Error('不能为空'))
-        }else if (!re.test(value)) {
+        } else if (!re.test(value)) {
           callback(new Error('请输入数字'))
         }
-      };
-      return{
+      }
+      return {
 
-        labelPosition:"right",
-        formLabelAlign:{
-          name:'',
-          region:''
+        labelPosition: 'right',
+        formLabelAlign: {
+          name: '',
+          region: ''
         },
-        formrule:{
-          pwd:'',
-          checkpwd:'',
-          age:''
+        formrule: {
+          pwd: '',
+          checkpwd: '',
+          age: ''
 
         },
-        addform:{
-          list:'',
-          list_w:[
-            {"name":"列表1","value":''}
+        addform: {
+          list: '',
+          list_w: [
+            {'name': '列表1', 'value': ''}
           ]
         },
-        rules2:{
-          pwd:[
-            {validator:validatepass,trigger:'blur'}
+        rules2: {
+          pwd: [
+            {validator: validatepass, trigger: 'blur'}
           ],
-          checkpwd:[
-            {validator:validatecheckpwd,trigger:'blur'}
+          checkpwd: [
+            {validator: validatecheckpwd, trigger: 'blur'}
           ],
-          age:[
-            {validator:validateage,trigger:'blur'}
+          age: [
+            {validator: validateage, trigger: 'blur'}
           ]
         }
-      };
+      }
     },
-    methods:{
-      resetForm(formname){
-
-        this.$refs[formname].resetFields();
+    methods: {
+      resetForm (formname) {
+        this.$refs[formname].resetFields()
       },
-      submitForm(formname){
+      submitForm (formname) {
         this.$refs[formname].validate((valid) => {
-
           if (valid) {
-            alert('submit!');
+  
           } else {
-            console.log('error submit!!');
-            return false;
+            console.log('error submit!!')
+            return false
           }
-        });
+        })
       },
-      addform_list(){
-        this.addform.list_w.push({"name":"列表","value":''})
+      addform_list () {
+        this.addform.list_w.push({'name': '列表', 'value': ''})
       },
-      removeDomain(item){
+      removeDomain (item) {
         var index = this.addform.list_w.indexOf(item)
         if (index !== -1) {
           this.addform.list_w.splice(index, 1)

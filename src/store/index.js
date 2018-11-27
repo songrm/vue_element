@@ -11,17 +11,15 @@ Vue.use(Vuex)
 
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/59fffc51ab1a494a37b36d3f/';
 
+const store = new Vuex.Store({
 
-
-const store =new Vuex.Store({
-
-	modules: {
+  modules: {
 	    sidebar,
-      longin_info
+    longin_info
 
 	  },
 	  getters
 
 })
 
-export default store;
+export default store

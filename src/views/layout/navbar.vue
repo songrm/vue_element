@@ -45,49 +45,49 @@
   </div>
 </template>
 <script type="text/javascript">
-  import { mapGetters} from 'vuex'
+  import { mapGetters } from 'vuex'
   import screenfull from '@/components/screenfull/index'
   import themecolor from '@/components/ThemePicker/themecolor'
-	export default{
-		name:'navbar',
-		data(){
-			return{
-        breadcrumb:null
-			}
-		},
-    components:{screenfull,themecolor},
-    created(){
-      this.bread();
+export default{
+    name: 'navbar',
+    data () {
+      return {
+        breadcrumb: null
+      }
     },
-    watch:{
-      $route() {
+    components: {screenfull, themecolor},
+    created () {
+      this.bread()
+    },
+    watch: {
+      $route () {
         this.bread()
       }
     },
-    methods:{
-      bread(){
-          let matched = this.$route.matched.filter(item => item.name)
-          const first = matched[0];
-          //console.log(first);
-          if (first && first.name !== 'dashboard') {
-            matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
-          }
-          this.breadcrumb = matched
+    methods: {
+      bread () {
+        let matched = this.$route.matched.filter(item => item.name)
+        const first = matched[0]
+        // console.log(first);
+        if (first && first.name !== 'dashboard') {
+          matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
+        }
+        this.breadcrumb = matched
       },
-      logout(){
+      logout () {
 
       },
-      toggle(){
+      toggle () {
         this.$store.dispatch('sibar_width')
       }
     },
-    computed:{
+    computed: {
       ...mapGetters([
         'getuser',
         'roles'
-      ]),
+      ])
     }
-	}
+}
 </script>
 <style type="text/css">
 	.gde_w{height: 20px;line-height: 20px;padding-top: 18px;}

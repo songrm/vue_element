@@ -15,15 +15,15 @@
 	import appMain from './appMain'
 
 	export default{
-		name:'layout',
-		data(){
-			return{
+	  name: 'layout',
+	  data () {
+	    return {
 
-			}
-		},
-		components: { navbar,appMain,sidebar },
+	    }
+	  },
+	  components: { navbar, appMain, sidebar },
 	  computed: {
-	    showe() {
+	    showe () {
 	      return this.$store.state.sidebar.sbar_width
 	    }
 	  }

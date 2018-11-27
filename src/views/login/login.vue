@@ -22,50 +22,47 @@
 	</el-container>
 </template>
 <script type="text/javascript">
-import { mapGetters ,mapActions,mapState} from 'vuex'
+import { mapGetters, mapActions, mapState} from 'vuex'
 
-	export default{
-		name:"login",
-		data(){
-			let data_n='';
-			var validatename=(rule, value, callback)=>{
-
-				if(value==''){
-					callback(new Error('不能为空123'));
-				}else{
-					callback();
-				}
-			};
-			var validatepwd=(rule, value, callback)=>{
-				if(value==''){
-					callback(new Error('不能为空'));
-				}else{
-					callback();
-				}
-			};
-			return{
-				exdate:1,
-				ruleForm2: {
+export default{
+  name: 'login',
+  data () {
+    let data_n = ''
+    var validatename = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('不能为空123'))
+      } else {
+        callback()
+      }
+    }
+    var validatepwd = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('不能为空'))
+      } else {
+        callback()
+      }
+    }
+    return {
+      exdate: 1,
+      ruleForm2: {
 		          usexm: '',
 		          pass: ''
 		        },
-		     rules2 : {
-						usexm:[{validator: validatename, trigger: 'blur'}],
-						pass:[{validator:validatepwd,trigger:'blur'}]
-					},
-					l_load:false
+		     rules2: {
+       usexm: [{validator: validatename, trigger: 'blur'}],
+       pass: [{validator: validatepwd, trigger: 'blur'}]
+     },
+      l_load: false
 
+    }
+  },
 
-			}
-
-		},
-
-		methods:{
-			handleLogin(loginform){
-				this.$refs[loginform].validate((valid)=>{
-					if(valid){
-						this.l_load=true;
-						var self=this
+  methods: {
+    handleLogin (loginform) {
+      this.$refs[loginform].validate((valid) => {
+        if (valid) {
+          this.l_load = true
+          var self = this
 						// this.$axios.get('ceshi/login').then(function (response) {
     				// 	const dataww = response.data.data.name;
             //
@@ -80,31 +77,26 @@ import { mapGetters ,mapActions,mapState} from 'vuex'
 						// 	// this.$store.dispatch('get_user',this.ruleForm2)
             //
     				// })
-						this.$store.dispatch('get_user',this.ruleForm2)
-						//this.setCookie(this.ruleForm2.usexm,'8585');
-						this.$router.push({path:'/'})
-					}else{
-						this.l_load=false;
-						console.log('error submit!!');
-						return false;
-					}
-				})
-			},
-			setCookie(c_name,c_pwd) {
-			     var exdate=new Date();//获取时间
-			     exdate.setTime(exdate.getTime() + 24*60*60*1000);//保存的天数
-			     //字符串拼接cookie
-			     window.document.cookie="userName"+ "=" +c_name+";path=/";
-			     window.document.cookie="token"+"="+c_pwd+";path=/";
-			 }
+          this.$store.dispatch('get_user', this.ruleForm2)
+						// this.setCookie(this.ruleForm2.usexm,'8585');
+          this.$router.push({path: '/'})
+        } else {
+          this.l_load = false
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
+    setCookie (c_name, c_pwd) {
+      var exdate = new Date()// 获取时间
+      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000)// 保存的天数
+// 字符串拼接cookie
+      window.document.cookie = 'userName' + '=' + c_name + ';path=/'
+      window.document.cookie = 'token' + '=' + c_pwd + ';path=/'
+    }
 
-
-		}
-	}
-
-
-
-
+  }
+}
 
 </script>
 <style type="text/css">
