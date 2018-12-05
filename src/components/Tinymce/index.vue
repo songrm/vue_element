@@ -1,9 +1,12 @@
 <template>
   <div class="tinymce-container editor-container">
-    <textarea class="tinymce-textarea" :id="tinymceId"></textarea>
+    <textarea
+      class="tinymce-textarea"
+      :id="tinymceId"
+    />
     <div class="editor-custom-btn-container">
-     <!-- <editorImage  color="#20a0ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"></editorImage> -->
-      </div>
+      <!-- <editorImage  color="#20a0ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"></editorImage> -->
+    </div>
   </div>
 </template>
 
@@ -12,7 +15,7 @@
 
 export default {
   name: 'tinymce',
-   // components: { editorImage },
+  // components: { editorImage },
   props: {
     id: {
       type: String
@@ -73,7 +76,7 @@ export default {
         // menubar: this.menubar,
         //plugins: 'print preview fullpage searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
         plugins: 'advlist,autolink,code,paste,textcolor, colorpicker,fullscreen,link,lists,media,template,codesample,wordcount, imagetools',
-        toolbar:'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
 
         image_advtab: true,
         // end_container_on_empty_block: true,
@@ -157,7 +160,7 @@ export default {
 
 <style scoped>
 .tinymce-container {
-  position: relative
+  position: relative;
 }
 .tinymce-textarea {
   visibility: hidden;

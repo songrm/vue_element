@@ -4,12 +4,12 @@
   </div>
 </template>
 <script>
-  export default{
-    name:'login',
-    data(){
-      return{
+export default {
+  name: 'Login',
+  data() {
+    return {
 
-      }
     }
   }
+}
 </script>

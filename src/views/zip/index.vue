@@ -1,87 +1,99 @@
 <template>
-  <div class="">
+  <div class>
     <div class="zip">
-      <el-input class="title_zip" size="medium" v-model="input" placeholder="请输入文件名称"></el-input>
-      <el-button type="primary" size="medium" @click="zip_down()" :loading="downloadLoading">下载</el-button>
+      <el-input
+        v-model="input"
+        class="title_zip"
+        size="medium"
+        placeholder="请输入文件名称"
+      />
+      <el-button
+        :loading="downloadLoading"
+        type="primary"
+        size="medium"
+        @click="zip_down()"
+      >下载</el-button>
     </div>
 
-    <el-table border style="width:90%" :data="tableData">
-
+    <el-table
+      :data="tableData"
+      border
+      style="width:90%"
+    >
       <el-table-column label="name">
-        <template scope="scope">
-          {{scope.row.name}}
-        </template>
+        <template slot-scope="scope">{{ scope.row.name }}</template>
       </el-table-column>
       <el-table-column label="email">
-        <template scope="scope">
-          {{scope.row.email}}
-        </template>
+        <template slot-scope="scope">{{ scope.row.email }}</template>
       </el-table-column>
       <el-table-column label="date">
-        <template scope="scope">
-          {{scope.row.date}}
-        </template>
+        <template slot-scope="scope">{{ scope.row.date }}</template>
       </el-table-column>
       <el-table-column label="address">
-        <template scope="scope">
-          {{scope.row.address}}
-        </template>
+        <template slot-scope="scope">{{ scope.row.address }}</template>
       </el-table-column>
-
     </el-table>
-
   </div>
-
 </template>
 <script>
+export default {
+  name: 'Zip',
+  data() {
+    return {
+      input: '',
+      downloadLoading: false,
+      tableData: null
+    }
+  },
+  created() {
+    this.request()
+  },
+  methods: {
+    request() {
+      console.log(this.abc)
 
-  export default{
-    name:"zip",
-    data(){
-      return{
-        input:"",
-        downloadLoading:false,
-        tableData:null
-      }
-    },
-    methods:{
-      request(){
-        console.log(this.abc);
+      var self = this
 
-        var self = this;
-        this.$axios.get('/ceshi/table')
-        .then(function (response) {
-          self.tableData=response.data.data.projects
+      this.$axios.get('/ceshi/table')
+        .then(function(response) {
+          self.tableData = response.data.data.projects
         })
-        .catch(function (error) {
-          console.log(error);
-        });
-      },
-      zip_down(){
-        this.downloadLoading = true
-        require.ensure([], () => {
-          const { export_txt_to_zip } = require('@/vendor/Export2Zip')
-          const tHeader = ['姓名','email','address']
-          const filterVal = ['name','email','address']
-          const list = this.tableData
-          const data = this.formatJson(filterVal, list)
-          export_txt_to_zip(tHeader, data, this.input, '压缩文本')
-          this.downloadLoading = false
+        .catch(function(error) {
+          console.log(error)
         })
-      },
-      formatJson(filterVal, jsonData) {
-        return jsonData.map(v => filterVal.map(j => v[j]))
-      }
     },
-    mounted(){
+    zip_down() {
+      this.downloadLoading = true
+      require.ensure([], () => {
+        const {
+          export_txt_to_zip
+        } = require('@/vendor/Export2Zip')
 
+        const tHeader = ['姓名', 'email', 'address']
+
+        const filterVal = ['name', 'email', 'address']
+
+        const list = this.tableData
+
+        const data = this.formatJson(filterVal, list)
+
+        export_txt_to_zip(tHeader, data, this.input, '压缩文本')
+        this.downloadLoading = false
+      })
     },
-    created(){
-      this.request();
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => v[j]))
     }
   }
+}
+
 </script>
 <style>
-  .title_zip{width: 180px;}
-  .zip{margin-bottom: 20px;}
+.title_zip {
+  width: 180px;
+}
+
+.zip {
+  margin-bottom: 20px;
+}
 </style>
