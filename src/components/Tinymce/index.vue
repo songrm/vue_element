@@ -1,8 +1,8 @@
 <template>
   <div class="tinymce-container editor-container">
     <textarea
-      class="tinymce-textarea"
       :id="tinymceId"
+      class="tinymce-textarea"
     />
     <div class="editor-custom-btn-container">
       <!-- <editorImage  color="#20a0ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"></editorImage> -->
@@ -14,11 +14,12 @@
 // import editorImage from './components/editorImage'
 
 export default {
-  name: 'tinymce',
+  name: 'Tinymce',
   // components: { editorImage },
   props: {
     id: {
-      type: String
+      type: String,
+      default: ''
     },
     value: {
       type: String,
@@ -63,9 +64,13 @@ export default {
   deactivated() {
     this.destroyTinymce()
   },
+  destroyed() {
+    this.destroyTinymce()
+  },
   methods: {
     initTinymce() {
       const _this = this
+
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
         height: this.height,
@@ -74,7 +79,7 @@ export default {
         // object_resizing: false,
         // toolbar: this.toolbar,
         // menubar: this.menubar,
-        //plugins: 'print preview fullpage searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
+        // plugins: 'print preview fullpage searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
         plugins: 'advlist,autolink,code,paste,textcolor, colorpicker,fullscreen,link,lists,media,template,codesample,wordcount, imagetools',
         toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
 
@@ -147,13 +152,11 @@ export default {
     },
     imageSuccessCBK(arr) {
       const _this = this
+
       arr.forEach(v => {
         window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
       })
     }
-  },
-  destroyed() {
-    this.destroyTinymce()
   }
 }
 </script>

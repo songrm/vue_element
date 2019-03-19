@@ -25,8 +25,10 @@ var UserSchema = new mongoose.Schema({
   }
 })
 // 每次存储都会调用这个方法
-UserSchema.pre('save', function (next) {
+
+UserSchema.pre('save', function(next) {
   var user = this
+
   if (this.isNew) {
     this.meta.createAt = this.meta.updateAt = Date.now()
   } else {
@@ -37,17 +39,19 @@ UserSchema.pre('save', function (next) {
 
 // 创建一个静态方法，只有实例化之后 才能调用
 UserSchema.statics = {
-  fetch: function (cd) {
+  fetch: function(cd) {
     return this
-        .find({})
-        .sort()
-        .exec(cd)
+      .find({})
+      .sort()
+      .exec(cd)
   },
-  select: function (name, cd) {
+  select: function(name, cd) {
     return this
-        .find({'name': name})
-        .sort()
-        .exec(cd)
+      .find({
+        'name': name
+      })
+      .sort()
+      .exec(cd)
   }
 }
 module.exports = UserSchema

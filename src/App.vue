@@ -1,18 +1,14 @@
 <template>
-  <div id="app" class="app-wrapper">
-    <router-view></router-view>
+  <div
+    id="app"
+    class="app-wrapper"
+  >
+    <router-view />
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'app',
-  data () {
-    return {
-     
-    }
-  }
+  name: 'App'
 }
 </script>

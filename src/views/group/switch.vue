@@ -185,7 +185,7 @@
 </template>
 <script>
 export default {
-  name: 'switch',
+  name: 'Switch',
   data() {
     return {
       value1: true,
@@ -213,7 +213,7 @@ export default {
       this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length
     },
     handleCheckAllChange(val) {
-      this.checkedCities = val ? cityOptions : []
+      this.checkedCities = val
       this.isIndeterminate = false
     },
     handleSizeChange(val) {

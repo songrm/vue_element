@@ -1,9 +1,9 @@
 <template>
   <div class="foot_one">
     <span
-      v-for='(qd,index) in fore'
-      class="nv_body_s"
+      v-for="(qd,index) in fore"
       :key="index"
+      class="nv_body_s"
     >
       {{ qd._record }}{{ qd._copyright }}
     </span>
@@ -18,17 +18,18 @@ export default {
       copy: ''
     }
   },
+  created() {
+    this.menu_fr()
+  },
   methods: {
     menu_fr() {
       var self = this
-      this.$axios.get('/footlist').then(function (response) {
+
+      this.$axios.get('/footlist').then(function(response) {
         self.fore = response.data.data
         // console.log(response.data.data)
       })
     }
-  },
-  created() {
-    this.menu_fr()
   }
 }
 </script>

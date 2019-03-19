@@ -204,7 +204,7 @@ export default {
     submitForm(formname) {
       this.$refs[formname].validate((valid) => {
         if (valid) {
-
+          // kong
         } else {
           console.log('error submit!!')
           return false

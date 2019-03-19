@@ -1,5 +1,5 @@
 const getters = {
-  permission_routers (state) {
+  permission_routers(state) {
     return state.sidebar.routers
   },
   addRouters: state => state.sidebar.addRouters,

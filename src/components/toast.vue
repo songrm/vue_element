@@ -1,8 +1,8 @@
 <template>
   <div
-    class="toast"
-    :style="a"
     v-if="isShow"
+    :style="a"
+    class="toast"
   >
     <div class="toast-div">{{ text }}</div>
   </div>

@@ -6,15 +6,15 @@
       总条数={{ allpage }}； 每页显示条数={{ showItem }}
       <ul class="pagination">
         <li><a
-            href="javascript:;"
-            v-show="curr!=1"
-            @click="curr-- && go_page(curr)"
-          >上一页</a></li>
+          v-show="curr!=1"
+          href="javascript:;"
+          @click="curr-- && go_page(curr)"
+        >上一页</a></li>
         <li
           v-for="(page, index) in dataPage"
           :class="{'active':curr===page}"
-          @click="go_page(page)"
           :key="index"
+          @click="go_page(page)"
         >
           <a>{{ page }}</a>
         </li>
@@ -30,25 +30,26 @@
 </template>
 <script>
 export default {
-  name: "Page",
+  name: 'Page',
   props: ['showItem', 'allpage'],
   data() {
     return {
       curr: 1,
       zhy: 0
-      //item:5
+      // item:5
     }
   },
   computed: {
-    dataPage: function () {
-      var pages = [];
-      //var i=Math.min(this.showItem,this.allpage);
+    dataPage: function() {
+      var pages = []
+      // var i=Math.min(this.showItem,this.allpage);
       var i = Math.ceil(this.allpage / this.showItem)
+
       while (i) {
         pages.unshift(i--)
       }
-      this.zhy = pages.length;
-      return pages;
+      this.zhy = pages.length
+      return pages
     }
   },
   methods: {

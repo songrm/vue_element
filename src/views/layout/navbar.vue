@@ -19,7 +19,7 @@
         <div class="grid-content02 sz_hide">
           <el-breadcrumb separator="/">
             <template v-for="a in breadcrumb">
-              <el-breadcrumb-item :to="{ path: '/' }" :key="a">{{ a.name }}</el-breadcrumb-item>
+              <el-breadcrumb-item :to="{ path: '/' }" :key="a.id">{{ a.name }}</el-breadcrumb-item>
             </template>
           </el-breadcrumb>
         </div>

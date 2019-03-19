@@ -315,8 +315,19 @@ import toast from '@/components/js/to.js'
 Vue.prototype.$toast = toast
 
 export default {
-  name: 'perm',
+  name: 'Perm',
   components: { ch },
+  filters: {
+    class_f(a) {
+      const class_tr = {
+        department1: 'depart1',
+        department2: 'depart2',
+        department3: 'depart3'
+      }
+
+      return class_tr[a]
+    }
+  },
   data() {
     return {
       activeName: 'first',
@@ -332,10 +343,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'getuser',
-      'roles'
-    ])
+    // ...mapGetters([
+    //   'getuser',
+    //   'roles'
+    // ])
   },
   watch: {
     time(val) {
@@ -373,19 +384,7 @@ export default {
     showToast() {
       this.$toast('新内容', 2000, { color: '#F38181', backgroundColor: '#FEFAEC' })
     }
-  },
-  filters: {
-    class_f(a) {
-      const class_tr = {
-        department1: 'depart1',
-        department2: 'depart2',
-        department3: 'depart3'
-      }
-
-      return class_tr[a]
-    }
   }
-
 }
 </script>
 <style rel="stylesheet/css" lang="css" scoped>

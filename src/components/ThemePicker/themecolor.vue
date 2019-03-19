@@ -32,6 +32,7 @@ export default {
           const newStyle = this.updateStyle(this[variable], originalCluster, themeCluster)
 
           let styleTag = document.getElementById(id)
+
           if (!styleTag) {
             styleTag = document.createElement('style')
             styleTag.setAttribute('id', id)
@@ -45,6 +46,7 @@ export default {
 
       if (!this.chalk) {
         const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`
+
         this.getCSSString(url, chalkHandler, 'chalk')
       } else {
         chalkHandler()
@@ -53,8 +55,10 @@ export default {
       const styles = [].slice.call(document.querySelectorAll('style'))
         .filter(style => {
           const text = style.innerText
+
           return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text)
         })
+
       styles.forEach(style => {
         const { innerText } = style
 
@@ -129,7 +133,7 @@ export default {
       }
 
       const clusters = [theme]
-      
+
       for (let i = 0; i <= 9; i++) {
         clusters.push(tintColor(theme, Number((i / 10).toFixed(2))))
       }

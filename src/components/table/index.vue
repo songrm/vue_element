@@ -53,9 +53,9 @@
 </template>
 <script>
 const h_tables = [
-  { date: '2016-05-03', name: '王小虎', address: 'Facebook', prec: 13, status: "progress" },
-  { date: '2016-05-03', name: '王小虎', address: 'Google', prec: 93, status: "deleted" },
-  { date: '2016-05-02', name: '王小虎', address: 'Twitter', prec: 100, status: "completed" }
+  { date: '2016-05-03', name: '王小虎', address: 'Facebook', prec: 13, status: 'progress' },
+  { date: '2016-05-03', name: '王小虎', address: 'Google', prec: 93, status: 'deleted' },
+  { date: '2016-05-02', name: '王小虎', address: 'Twitter', prec: 100, status: 'completed' }
 ]
 
 export default {

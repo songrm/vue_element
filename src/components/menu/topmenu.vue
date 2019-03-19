@@ -2,9 +2,9 @@
   <div class="nv_body">
     <span style="font-size:25px;padding: 0px 30px">logo</span>
     <span
-      v-for='(qd,index) in menu_data'
-      class="nv_body_s"
+      v-for="(qd,index) in menu_data"
       :key="index"
+      class="nv_body_s"
     >
       {{ qd._title }}
     </span>
@@ -18,18 +18,19 @@ export default {
       menu_data: []
     }
   },
-  methods: {
-    menu_fr() {
-      var self = this
-      this.$axios.get('/menulist').then(function (response) {
-        self.menu_data = response.data.data
-        //console.log(response.data.data)
-      })
-    },
-  },
   created() {
     this.menu_fr()
   },
+  methods: {
+    menu_fr() {
+      var self = this
+
+      this.$axios.get('/menulist').then(function(response) {
+        self.menu_data = response.data.data
+        // console.log(response.data.data)
+      })
+    }
+  }
 }
 </script>
 <style lang="scss">

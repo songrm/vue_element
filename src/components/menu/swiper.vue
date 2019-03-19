@@ -1,7 +1,7 @@
 <template>
   <div class="home_01">
     <div class="xc_ye">
-      <div id="particles"></div>
+      <div id="particles"/>
       <!-- <img src="static/bg_star.png" class="xc_ye_img"> -->
       <!-- <div class="zpc"></div> -->
       <div
@@ -158,9 +158,9 @@
     <!-- 联系我们 -->
     <div class="xuc01 bg_cont">
       <div
-        class=""
         id="particles01"
-      ></div>
+        class=""
+      />
       <el-row>
         <el-col
           :span="24"
@@ -215,7 +215,7 @@
           <textarea
             class="form-control"
             placeholder="内容"
-          ></textarea>
+          />
           <div class="">
             <a class="sub_tj">提交</a>
           </div>
@@ -225,7 +225,7 @@
   </div>
 </template>
 <script>
-import particles from 'particles.js'
+// import particles from 'particles.js'
 export default {
   name: 'Swiper',
   data() {
@@ -233,12 +233,12 @@ export default {
       menu_data: []
     }
   },
+  // mounted() {
+  //   particlesJS.load('particles', '/static/s_circle.json')
+  //   particlesJS.load('particles01', '/static/s_big_circle.json')
+  // },
   methods: {
 
-  },
-  mounted() {
-    particlesJS.load('particles', '/static/s_circle.json');
-    particlesJS.load('particles01', '/static/s_big_circle.json');
   }
 
 }

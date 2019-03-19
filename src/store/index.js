@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 import sidebar from './sidebar'
 import longin_info from './user'
@@ -14,11 +14,11 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 
   modules: {
-	    sidebar,
+    sidebar,
     longin_info
 
-	  },
-	  getters
+  },
+  getters
 
 })
 
