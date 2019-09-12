@@ -9,6 +9,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+// import '../servers/mongodb.js'
+require('../servers/mongodb.js')
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }

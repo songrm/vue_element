@@ -3,6 +3,7 @@
     <skeleton-loading>
       <h1>骨架屏</h1>
     </skeleton-loading>
+    <br />
     <h3>这里是404页面</h3>
     <span @click="meClick">点击我</span>
     <div
@@ -33,28 +34,26 @@
   </div>
 </template>
 <script>
-// import img_404 from '@/assets/404.png'
+
 export default {
   name: 'Err',
+
   data() {
     return {
       // img_404
       rooms: ['1', '2', '3', '4', '5', '6'],
       roomTwo: [],
       roomTherr: [],
+
+      myData: {
+        name: '天天',
+        country: 'china'
+      },
       istrue: [],
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
       }, {
         date: '2016-05-03',
         name: '王小虎',

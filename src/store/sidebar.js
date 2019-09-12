@@ -6,7 +6,7 @@ import axios from 'axios'
 
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/59fffc51ab1a494a37b36d3f/'
 
-axios.defaults.baseURL = 'http://localhost:8087/apiw'
+axios.defaults.baseURL = 'http://127.0.0.1:8087/api/'
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 function hasPermission(roles, route) {
   if (route.meta && route.meta.role) {

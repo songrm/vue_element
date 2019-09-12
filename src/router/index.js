@@ -335,6 +335,12 @@ export const asyncRouterMap = [
         name: 'test',
         num_w: '6-7',
         component: () => import('@/views/err/test')
+      },
+      {
+        path: '/zindex',
+        name: 'zindex',
+        num_w: '6-8',
+        component: () => import('@/views/err/zindex')
       }
     ],
     meta: {
