@@ -1,36 +1,36 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
-import Layout from '@/views/layout/Layout'
+Vue.use(Router);
+import Layout from "../views/layout/layout.vue";
 
 // import login from '../views/login/login'
 
 // constanRouterMap 不需要权限的公用页面
 export const constanRouterMap = [
   {
-    path: '/',
-    name: '首页',
+    path: "/",
+    name: "首页",
     component: Layout,
-    icon: '#icon-shouye2',
-    num_w: '1',
-    redirect: '/dashboard/index',
+    icon: "#icon-shouye2",
+    num_w: "1",
+    redirect: "/dashboard/index",
     hidden: true,
     children: [
       {
-        path: '/dashboard/index',
-        name: 'dashboard',
-        num_w: '1-1',
+        path: "/dashboard/index",
+        name: "dashboard",
+        num_w: "1-1",
         component: resolve => {
-          require(['../views/dashboard/index'], resolve)
+          require(["../views/dashboard/index"], resolve);
         }
       },
       {
-        path: '/dashboard/02',
-        name: 'dashboard v2',
-        num_w: '1-2',
+        path: "/dashboard/02",
+        name: "dashboard v2",
+        num_w: "1-2",
         component: resolve => {
-          require(['../views/dashboard/index02'], resolve)
+          require(["../views/dashboard/index02"], resolve);
         }
       }
     ]
@@ -45,7 +45,7 @@ export const constanRouterMap = [
   //   children: [
   //     {
   //       path: '/404',
-  //       component: () => import('@/views/err/404'),
+  //       component: () => import('../views/err/404'),
   //       name: 'CreateArticle',
   //       meta: { title: 'createArticle', icon: 'edit' }
   //     }
@@ -54,40 +54,41 @@ export const constanRouterMap = [
   // }
 
   {
-    path: '/login',
-    icon: '#icon-zhankai1',
-    num_w: '2',
-    name: '登录',
+    path: "/login",
+    icon: "#icon-zhankai1",
+    num_w: "2",
+    name: "登录",
     hidden: false,
-    component: () => import('@/views/login/login')
+    component: () => import("../views/login/login")
   }
-]
+];
 
 // 实例化vue 时，只挂载constanRouter
 export default new Router({
   routes: constanRouterMap
-
-})
+});
 
 // 异步挂载路由。 判断权限加载路由表
 
 export const asyncRouterMap = [
   {
-    path: '/icon',
-    name: 'icon',
-    num_w: '4',
-    redirect: '/icon/index',
-    icon: '#icon-chanpin2',
+    path: "/icon",
+    name: "icon",
+    num_w: "4",
+    redirect: "/icon/index",
+    icon: "#icon-chanpin2",
     hidden: true,
     component: Layout,
-    children: [{
-      path: '/icon/index',
-      name: 'icon',
-      num_w: '4-1',
-      component: () => import('@/views/icon/index')
-    }],
+    children: [
+      {
+        path: "/icon/index",
+        name: "icon",
+        num_w: "4-1",
+        component: () => import("../views/icon/index")
+      }
+    ],
     meta: {
-      role: ['admin', 'super_editor']
+      role: ["admin", "super_editor"]
     }
   },
   // {
@@ -164,138 +165,138 @@ export const asyncRouterMap = [
   //   meta: {role: ['admin', 'super_editor']}
   // },
   {
-    path: '/article',
-    name: 'article',
-    num_w: '10',
-    redirect: '/group/article',
-    icon: '#icon-chanpin',
+    path: "/article",
+    name: "article",
+    num_w: "10",
+    redirect: "/group/article",
+    icon: "#icon-chanpin",
     hidden: true,
     component: Layout,
     children: [
       {
-        path: '/group/article',
-        name: 'article_list',
-        num_w: '10-1',
+        path: "/group/article",
+        name: "article_list",
+        num_w: "10-1",
         component: resolve => {
-          require(['../views/group/article'], resolve)
+          require(["../views/group/article"], resolve);
         }
       },
       {
-        path: '/group/bolg',
-        name: 'bolg',
-        num_w: '10-2',
+        path: "/group/bolg",
+        name: "bolg",
+        num_w: "10-2",
         component: resolve => {
-          require(['../views/group/bolg'], resolve)
+          require(["../views/group/bolg"], resolve);
         }
       },
       {
-        path: '/group/add_bolg',
-        name: 'add_bolg',
-        num_w: '10-3',
+        path: "/group/add_bolg",
+        name: "add_bolg",
+        num_w: "10-3",
         component: resolve => {
-          require(['../views/group/add_bolg'], resolve)
+          require(["../views/group/add_bolg"], resolve);
         }
       },
       {
-        path: '/group/bolg_list',
-        name: 'bolg_list',
-        num_w: '10-4',
+        path: "/group/bolg_list",
+        name: "bolg_list",
+        num_w: "10-4",
         component: resolve => {
-          require(['../views/group/bolg_list'], resolve)
+          require(["../views/group/bolg_list"], resolve);
         }
       },
       {
-        path: '/group/question',
-        name: 'question',
-        num_w: '10-5',
+        path: "/group/question",
+        name: "question",
+        num_w: "10-5",
         component: resolve => {
-          require(['../views/group/question'], resolve)
+          require(["../views/group/question"], resolve);
         }
       }
     ],
 
     meta: {
-      role: ['admin', 'super_editor']
+      role: ["admin", "super_editor"]
     }
   },
   {
-    path: '/table',
-    name: 'table',
-    num_w: '7',
-    redirect: '/table/dyn_table',
-    icon: '#icon-table_format',
+    path: "/table",
+    name: "table",
+    num_w: "7",
+    redirect: "/table/dyn_table",
+    icon: "#icon-table_format",
     hidden: true,
     component: Layout,
     children: [
       {
-        path: '/table/dyn_table',
-        name: '动态table',
-        num_w: '7-1',
+        path: "/table/dyn_table",
+        name: "动态table",
+        num_w: "7-1",
         component: resolve => {
-          require(['../views/table/dyn_table.vue'], resolve)
+          require(["../views/table/dyn_table.vue"], resolve);
         }
       },
       {
-        path: '/table/tab',
-        name: 'tab',
-        num_w: '7-2',
+        path: "/table/tab",
+        name: "tab",
+        num_w: "7-2",
         component: resolve => {
-          require(['../views/table/tab.vue'], resolve)
+          require(["../views/table/tab.vue"], resolve);
         }
       },
       {
-        path: '/table/multiple_table',
-        name: '综合table',
-        num_w: '7-3',
+        path: "/table/multiple_table",
+        name: "综合table",
+        num_w: "7-3",
         component: resolve => {
-          require(['../views/table/multiple_table.vue'], resolve)
+          require(["../views/table/multiple_table.vue"], resolve);
         }
       },
       {
-        path: '/table/vuex',
-        name: 'vuex',
-        num_w: '7-4',
+        path: "/table/vuex",
+        name: "vuex",
+        num_w: "7-4",
         component: resolve => {
-          require(['../views/table/vuex.vue'], resolve)
+          require(["../views/table/vuex.vue"], resolve);
         }
       }
     ],
 
     meta: {
-      role: ['admin', 'super_editor']
+      role: ["admin", "super_editor"]
     }
   },
   {
-    path: '/form',
-    name: 'form',
-    num_w: '8',
-    redirect: '/form/add_form',
-    icon: '#icon-form',
-    hidden: 'true',
+    path: "/form",
+    name: "form",
+    num_w: "8",
+    redirect: "/form/add_form",
+    icon: "#icon-form",
+    hidden: "true",
     component: Layout,
     children: [
       {
-        path: '/form/add_form',
-        name: '创建form',
-        num_w: '8-1',
+        path: "/form/add_form",
+        name: "创建form",
+        num_w: "8-1",
         component: resolve => {
-          require(['../views/form/add_form'], resolve)
+          require(["../views/form/add_form"], resolve);
         }
       },
       {
-        path: '/form/edit_form',
-        name: '常用form组件',
-        num_w: '8-2',
+        path: "/form/edit_form",
+        name: "常用form组件",
+        num_w: "8-2",
         component: resolve => {
-          require(['../views/form/edit_form'], resolve)
+          require(["../views/form/edit_form"], resolve);
         }
       },
       {
-        path: '/form/login',
-        name: '常用页面组件',
-        num_w: '8-3',
+        path: "/form/login",
+        name: "常用页面组件",
+        num_w: "8-3",
         component: resolve => {
-          require(['../views/form/login'], resolve)
+          require(["../views/form/login"], resolve);
         }
       }
     ]
@@ -316,35 +317,35 @@ export const asyncRouterMap = [
   //   meta: {role: ['admin', 'super_editor']}
   // },
   {
-    path: '/',
-    name: '404',
-    num_w: '6',
-    redirect: '/404',
-    icon: '#icon-404',
+    path: "/",
+    name: "404",
+    num_w: "6",
+    redirect: "/404",
+    icon: "#icon-404",
     hidden: true,
     component: Layout,
     children: [
       {
-        path: '/404',
-        name: '404',
-        num_w: '6-1',
-        component: () => import('@/views/err/404')
+        path: "/404",
+        name: "404",
+        num_w: "6-1",
+        component: () => import("../views/404/404.vue")
       },
       {
-        path: '/test',
-        name: 'test',
-        num_w: '6-7',
-        component: () => import('@/views/err/test')
+        path: "/test",
+        name: "test",
+        num_w: "6-7",
+        component: () => import("../views/404/404.vue")
       },
       {
-        path: '/zindex',
-        name: 'zindex',
-        num_w: '6-8',
-        component: () => import('@/views/err/zindex')
+        path: "/zindex",
+        name: "zindex",
+        num_w: "6-8",
+        component: () => import("../views/404/404.vue")
       }
     ],
     meta: {
-      role: ['admin', 'super_editor']
+      role: ["admin", "super_editor"]
     }
   }
-]
+];

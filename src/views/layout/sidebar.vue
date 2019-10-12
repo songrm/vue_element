@@ -1,49 +1,47 @@
 <template>
+  <!-- <el-aside  class="sidebar-container el-menu--dark "></el-aside> -->
   <scrollbar>
     <el-menu
-      :collapse="sbar_width"
       class="el-menu-vertical-demo fix_but"
       background-color="#272c32"
       text-color="#fff"
       active-text-color="#ffd04b"
+      :collapse="sbar_width"
     >
       <template v-for="item in permission_routers">
-        <router-link
-          v-if="item.hidden&&item.children === undefinde"
-          :to="item.path"
-          :key="item.path"
-        >
+        <router-link :to="item.path" v-if="!item.hidden">
           <el-menu-item :index="item.path">
-            <svg
-              class="icon sider_i"
-              aria-hidden="true"
-            >
-              <use :bind:xlink:href="item.icon" />
+            <svg class="icon sider_i" aria-hidden="true">
+              <use v-bind:xlink:href="item.icon"></use>
             </svg>
             <span slot="title">{{ item.name }}</span>
           </el-menu-item>
         </router-link>
-
-        <el-submenu
-          v-else-if="item.hidden"
-          :index="item.num_w"
-          :key="item.path"
+        <router-link
+          :to="item.path"
+          v-else-if="item.hidden && item.children.length === 1"
         >
-          <template slot="title">
-            <svg
-              class="icon sider_i"
-              aria-hidden="true"
-            >
-              <use :bind:xlink:href="item.icon" />
+          <el-menu-item :index="item.path">
+            <svg class="icon sider_i" aria-hidden="true">
+              <use v-bind:xlink:href="item.icon"></use>
             </svg>
-            <span slot="title">{{ item.name }} </span>
+            <span slot="title">{{ item.name }}</span>
+          </el-menu-item>
+        </router-link>
+        <el-submenu :index="item.num_w" v-else-if="item.hidden">
+          <template slot="title">
+            <svg class="icon sider_i" aria-hidden="true">
+              <use v-bind:xlink:href="item.icon"></use>
+            </svg>
+            <span slot="title">{{ item.name }}</span>
           </template>
+          <!-- <el-menu-item-group v-if="item.hidden">
+					        	<router-link v-for="child in item.children" :to="child.path">
+					        		<el-menu-item index="child.num_w">{{child.name}}</el-menu-item>
+					        	</router-link>
+					        </el-menu-item-group> -->
           <template v-for="child in item.children">
-
-            <router-link
-              :to="child.path"
-              :key="child.name"
-            >
+            <router-link :to="child.path" :key="child.name">
               <el-menu-item :index="child.num_w">
                 {{ child.name }}
               </el-menu-item>
@@ -51,33 +49,25 @@
           </template>
         </el-submenu>
       </template>
-
     </el-menu>
   </scrollbar>
 </template>
 <script type="text/javascript">
-import { mapGetters } from 'vuex'
-import scrollbar from '@/components/scrollbar/index'
+import { mapGetters, mapActions, mapState } from "vuex";
+import scrollbar from "@/components/scrollbar/index";
 export default {
-  name: 'Sildebar',
-  components: { scrollbar },
+  name: "sildebar",
   data() {
     return {
       isCollapse: false
-    }
+    };
   },
+  components: { scrollbar },
+  methods: {},
   computed: {
-    ...mapGetters([
-      'permission_routers',
-      'addRouters',
-      'sbar_width'
-    ])
-  },
-  methods: {
-
+    ...mapGetters(["permission_routers", "addRouters", "sbar_width"])
   }
-
-}
+};
 </script>
 <style>
 /*.fix_but{position: absolute;;bottom: 0px;top:0px;left: 0px;width: 200px;}*/

@@ -1,9 +1,6 @@
 <template>
   <div class="tinymce-container editor-container">
-    <textarea
-      :id="tinymceId"
-      class="tinymce-textarea"
-    />
+    <textarea :id="tinymceId" class="tinymce-textarea" />
     <div class="editor-custom-btn-container">
       <!-- <editorImage  color="#20a0ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"></editorImage> -->
     </div>
@@ -14,26 +11,29 @@
 // import editorImage from './components/editorImage'
 
 export default {
-  name: 'Tinymce',
+  name: "Tinymce",
   // components: { editorImage },
   props: {
     id: {
       type: String,
-      default: ''
+      default: ""
     },
     value: {
       type: String,
-      default: ''
+      default: ""
     },
     toolbar: {
       type: Array,
       required: false,
       default() {
-        return ['removeformat undo redo |  bullist numlist | outdent indent | forecolor | fullscreen code', 'bold italic blockquote | h2 p  media link | alignleft aligncenter alignright']
+        return [
+          "removeformat undo redo |  bullist numlist | outdent indent | forecolor | fullscreen code",
+          "bold italic blockquote | h2 p  media link | alignleft aligncenter alignright"
+        ];
       }
     },
     menubar: {
-      default: ''
+      default: ""
     },
     height: {
       type: Number,
@@ -45,43 +45,47 @@ export default {
     return {
       hasChange: false,
       hasInit: false,
-      tinymceId: this.id || 'vue-tinymce-' + +new Date()
-    }
+      tinymceId: this.id || "vue-tinymce-" + +new Date()
+    };
   },
   watch: {
     value(val) {
       if (!this.hasChange && this.hasInit) {
-        this.$nextTick(() => window.tinymce.get(this.tinymceId).setContent(val))
+        this.$nextTick(() =>
+          window.tinymce.get(this.tinymceId).setContent(val)
+        );
       }
     }
   },
   mounted() {
-    this.initTinymce()
+    this.initTinymce();
   },
   activated() {
-    this.initTinymce()
+    this.initTinymce();
   },
   deactivated() {
-    this.destroyTinymce()
+    this.destroyTinymce();
   },
   destroyed() {
-    this.destroyTinymce()
+    this.destroyTinymce();
   },
   methods: {
     initTinymce() {
-      const _this = this
+      const _this = this;
 
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
         height: this.height,
-        theme: 'modern',
-        body_class: 'panel-body ',
+        theme: "modern",
+        body_class: "panel-body ",
         // object_resizing: false,
         // toolbar: this.toolbar,
         // menubar: this.menubar,
         // plugins: 'print preview fullpage searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
-        plugins: 'advlist,autolink,code,paste,textcolor, colorpicker,fullscreen,link,lists,media,template,codesample,wordcount, imagetools',
-        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        plugins:
+          "advlist,autolink,code,paste,textcolor, colorpicker,fullscreen,link,lists,media,template,codesample,wordcount, imagetools",
+        toolbar:
+          "formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
 
         image_advtab: true,
         // end_container_on_empty_block: true,
@@ -96,13 +100,13 @@ export default {
         // link_title: false,
         init_instance_callback: editor => {
           if (_this.value) {
-            editor.setContent(_this.value)
+            editor.setContent(_this.value);
           }
-          _this.hasInit = true
-          editor.on('NodeChange Change KeyUp', () => {
-            this.hasChange = true
-            this.$emit('input', editor.getContent({ format: 'raw' }))
-          })
+          _this.hasInit = true;
+          editor.on("NodeChange Change KeyUp", () => {
+            this.hasChange = true;
+            this.$emit("input", editor.getContent({ format: "raw" }));
+          });
         }
         // 整合七牛上传
         // images_dataimg_filter(img) {
@@ -137,28 +141,30 @@ export default {
         //     console.log(err);
         //   });
         // },
-      })
+      });
     },
     destroyTinymce() {
       if (window.tinymce.get(this.tinymceId)) {
-        window.tinymce.get(this.tinymceId).destroy()
+        window.tinymce.get(this.tinymceId).destroy();
       }
     },
     setContent(value) {
-      window.tinymce.get(this.tinymceId).setContent(value)
+      window.tinymce.get(this.tinymceId).setContent(value);
     },
     getContent() {
-      window.tinymce.get(this.tinymceId).getContent()
+      window.tinymce.get(this.tinymceId).getContent();
     },
     imageSuccessCBK(arr) {
-      const _this = this
+      const _this = this;
 
       arr.forEach(v => {
-        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
-      })
+        window.tinymce
+          .get(_this.tinymceId)
+          .insertContent(`<img class="wscnph" src="${v.url}" >`);
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>

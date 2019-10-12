@@ -5,11 +5,9 @@
 </template>
 <script>
 export default {
-  name: 'Login',
+  name: "login",
   data() {
-    return {
-
-    }
+    return {};
   }
-}
+};
 </script>

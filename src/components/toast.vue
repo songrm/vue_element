@@ -1,28 +1,24 @@
 <template>
-  <div
-    v-if="isShow"
-    :style="a"
-    class="toast"
-  >
+  <div v-if="isShow" :style="a" class="toast">
     <div class="toast-div">{{ text }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Toast',
+  name: "Toast",
   data() {
     return {
-      text: '内容',
+      text: "内容",
       isShow: true,
       duration: 1500,
       a: {
-        color: '#fff',
-        backgroundColor: '#000000'
+        color: "#fff",
+        backgroundColor: "#000000"
       }
-    }
+    };
   }
-}
+};
 </script>
 <style>
 .toast {

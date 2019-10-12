@@ -6,8 +6,7 @@
   >
     <div
       ref="scrollWrapper"
-      :style="{top: top + 'px'}"
-
+      :style="{ top: top + 'px' }"
       class="scroll-wrapper"
     >
       <slot />
@@ -18,16 +17,16 @@
 // const delta = 15
 
 export default {
-  name: 'Scrollbar',
+  name: "Scrollbar",
   data() {
     return {
       top: 0,
       show_fe: true
-    }
+    };
   },
   methods: {
     handleScroll(e) {
-      // e.preventDefault()
+      e.preventDefault();
       // const $container=this.$refs.scrollContainer
       // const $containerHeight=$container.offsetHeight
       // const $wrapper=this.$refs.scrollWrapper
@@ -53,7 +52,7 @@ export default {
       // }
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

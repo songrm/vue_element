@@ -1,37 +1,33 @@
 <template>
   <div class="nv_body">
     <span style="font-size:25px;padding: 0px 30px">logo</span>
-    <span
-      v-for="(qd,index) in menu_data"
-      :key="index"
-      class="nv_body_s"
-    >
+    <span v-for="(qd, index) in menu_data" :key="index" class="nv_body_s">
       {{ qd._title }}
     </span>
   </div>
 </template>
 <script>
 export default {
-  name: 'Topmz',
+  name: "Topmz",
   data() {
     return {
       menu_data: []
-    }
+    };
   },
   created() {
-    this.menu_fr()
+    this.menu_fr();
   },
   methods: {
     menu_fr() {
-      var self = this
+      var self = this;
 
-      this.$axios.get('/menulist').then(function(response) {
-        self.menu_data = response.data.data
+      this.$axios.get("/menulist").then(function(response) {
+        self.menu_data = response.data.data;
         // console.log(response.data.data)
-      })
+      });
     }
   }
-}
+};
 </script>
 <style lang="scss">
 .nv_body {

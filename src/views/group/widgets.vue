@@ -5,11 +5,8 @@
         <el-card :body-style="{ padding: '10px' }">
           <el-col :span="6">
             <div class="icon-md bg-danger">
-              <svg
-                class="icon"
-                aria-hidden="true"
-              >
-                <use xlink:href="#icon-hangyeshujubaogao" />
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-hangyeshujubaogao"></use>
               </svg>
             </div>
           </el-col>
@@ -25,11 +22,8 @@
         <el-card :body-style="{ padding: '10px' }">
           <el-col :span="6">
             <div class="icon-md bg-success">
-              <svg
-                class="icon"
-                aria-hidden="true"
-              >
-                <use xlink:href="#icon-renminbi" />
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-renminbi"></use>
               </svg>
             </div>
           </el-col>
@@ -45,11 +39,8 @@
         <el-card :body-style="{ padding: '10px' }">
           <el-col :span="6">
             <div class="icon-md bg-info">
-              <svg
-                class="icon"
-                aria-hidden="true"
-              >
-                <use xlink:href="#icon-chanpin" />
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-chanpin"></use>
               </svg>
             </div>
           </el-col>
@@ -65,11 +56,8 @@
         <el-card :body-style="{ padding: '10px' }">
           <el-col :span="6">
             <div class="icon-md bg-warning">
-              <svg
-                class="icon"
-                aria-hidden="true"
-              >
-                <use xlink:href="#icon-tixing" />
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-tixing"></use>
               </svg>
             </div>
           </el-col>
@@ -83,75 +71,49 @@
       </el-col>
     </el-row>
 
-    <el-row
-      :gutter="20"
-      style="margin-top:20px"
-    >
+    <el-row :gutter="20" style="margin-top:20px">
       <el-col :span="8">
         <el-card :body-style="{ padding: '0px' }">
-          <img
-            src="static/b01.jpg"
-            style="max-width:100%;"
-          >
+          <img src="static/b01.jpg" style="max-width:100%;" />
           <div style="padding: 14px;font-size:14px">
             <span>好吃的汉堡</span>
             <div class="bottom clearfix">
-              <el-button
-                type="text"
-                class="button"
-              >操作按钮</el-button>
+              <el-button type="text" class="button">操作按钮</el-button>
             </div>
           </div>
         </el-card>
       </el-col>
       <el-col :span="6">
         <el-card>
-          <div
-            slot="header"
-            style="font-size:14px;"
-          >
+          <div slot="header" style="font-size:14px;">
             <span>卡片名称</span>
             <el-button
               style="float: right; padding: 3px 0;font-size:14px;"
               type="text"
-            >操作按钮</el-button>
+              >操作按钮</el-button
+            >
           </div>
-          <div
-            v-for="o in 4"
-            :key="o"
-            class="ka_pin"
-          >
-            {{ '列表内容 ' + o }}
+          <div v-for="o in 4" class="ka_pin" :key="o">
+            {{ "列表内容 " + o }}
           </div>
         </el-card>
       </el-col>
     </el-row>
-    <el-row
-      :gutter="20"
-      style="margin-top:20px"
-    >
+    <el-row :gutter="20" style="margin-top:20px">
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
-          <img
-            src="static/b02.jpg"
-            style="max-width:100%;"
+          <img src="static/b02.jpg" style="max-width:100%;" />
+          <div
+            style="padding: 14px;font-size:14px;margin-top:-45px;text-align:right"
           >
-          <div style="padding: 14px;font-size:14px;margin-top:-45px;text-align:right">
             <div class="pers_je">
-              <img
-                src="static/morentu_2.png"
-                style="max-width:100%;"
-              >
+              <img src="static/morentu_2.png" style="max-width:100%;" />
             </div>
             <div class="pers_desp">
               <p class="pers_desp01">简言</p>
               <p class="pers_desp02">这里是描述</p>
             </div>
-            <el-col
-              v-for="(m,index) in 3"
-              :span="8"
-              :key="index"
-            >
+            <el-col :span="8" v-for="(m, index) in 3" :key="index">
               <div class="ms_jce">
                 <p class="ms_jce01">1000</p>
                 <p class="ms_jce02">qq</p>
@@ -163,33 +125,20 @@
 
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
-          <div
-            class="bg-info"
-            style="padding:20px 0px"
-          >
+          <div class="bg-info" style="padding:20px 0px">
             <div class="pers_je02">
-              <img
-                src="static/morentu_2.png"
-                style="max-width:100%;"
-              >
+              <img src="static/morentu_2.png" style="max-width:100%;" />
             </div>
             <div
               class="pers_desp"
               style="color:#fff;width:100%;text-align:center"
             >
               <p class="pers_desp01">简言</p>
-              <p
-                class="pers_desp02"
-                style="color:#fff;"
-              >这里是描述</p>
+              <p class="pers_desp02" style="color:#fff;">这里是描述</p>
             </div>
           </div>
           <div style="padding: 14px;font-size:14px;">
-            <el-col
-              v-for="(m,index) in 3"
-              :span="8"
-              :key="index"
-            >
+            <el-col :span="8" v-for="(m, index) in 3" :key="index">
               <div class="ms_jce">
                 <p class="ms_jce01">1000</p>
                 <p class="ms_jce02">qq</p>
@@ -200,33 +149,20 @@
       </el-col>
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
-          <div
-            class="bg-primary"
-            style="padding:20px 0px"
-          >
+          <div class="bg-primary" style="padding:20px 0px">
             <div class="pers_je02">
-              <img
-                src="static/morentu_2.png"
-                style="max-width:100%;"
-              >
+              <img src="static/morentu_2.png" style="max-width:100%;" />
             </div>
             <div
               class="pers_desp"
               style="color:#fff;width:100%;text-align:center"
             >
               <p class="pers_desp01">简言</p>
-              <p
-                class="pers_desp02"
-                style="color:#fff;"
-              >这里是描述</p>
+              <p class="pers_desp02" style="color:#fff;">这里是描述</p>
             </div>
           </div>
           <div style="padding: 14px;font-size:14px;">
-            <el-col
-              v-for="(m,index) in 3"
-              :span="8"
-              :key="index"
-            >
+            <el-col :span="8" v-for="(m, index) in 3" :key="index">
               <div class="ms_jce">
                 <p class="ms_jce01">1000</p>
                 <p class="ms_jce02">qq</p>
@@ -237,59 +173,29 @@
       </el-col>
       <el-col :span="6">
         <el-card :body-style="{ padding: '0px' }">
-          <div
-            class="bg-white"
-            style="padding:20px 0px"
-          >
+          <div class="bg-white" style="padding:20px 0px">
             <div class="pers_je02">
-              <img
-                src="static/morentu_2.png"
-                style="max-width:100%;"
-              >
+              <img src="static/morentu_2.png" style="max-width:100%;" />
             </div>
-            <div
-              class="pers_desp"
-              style="width:100%;text-align:center"
-            >
-              <p
-                class="pers_desp01"
-                style="color:#4a4a4a"
-              >简言</p>
+            <div class="pers_desp" style="width:100%;text-align:center">
+              <p class="pers_desp01" style="color:#4a4a4a">简言</p>
               <p class="pers_desp02">这里是描述</p>
             </div>
           </div>
           <div style="padding: 14px;font-size:14px;">
-            <el-button
-              type="primary"
-              icon="el-icon-share"
-            />
-            <el-button
-              type="success"
-              icon="el-icon-edit"
-            />
-            <el-button
-              type="warning"
-              icon="el-icon-upload"
-            />
+            <el-button type="primary" icon="el-icon-share"></el-button>
+            <el-button type="success" icon="el-icon-edit"></el-button>
+            <el-button type="warning" icon="el-icon-upload"></el-button>
           </div>
         </el-card>
       </el-col>
     </el-row>
 
-    <el-row
-      style="margin-top:20px"
-      class="blog_ato"
-    >
+    <el-row style="margin-top:20px" class="blog_ato">
       <el-col :span="24">
-        <div
-          class="blog_top"
-          style="background-image: url(static/bg_star.png)"
-        >
+        <div class="blog_top" style="background-image: url(static/bg_star.png)">
           <el-col :span="3">
-            <img
-              src="static/morentu_2.png"
-              class="logo_img"
-            >
+            <img src="static/morentu_2.png" class="logo_img" />
           </el-col>
           <el-col :span="18">
             <p class="pers_desp07">简言</p>
@@ -298,20 +204,17 @@
         </div>
       </el-col>
     </el-row>
-
   </div>
 </template>
 <script>
 export default {
-  name: 'widgets',
+  name: "widgets",
   data() {
-    return {
-
-    }
+    return {};
   }
-}
+};
 </script>
-<style lang='scss'>
+<style lang="scss">
 .icon-md {
   width: 60px;
   height: 60px;

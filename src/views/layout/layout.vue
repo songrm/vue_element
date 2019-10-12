@@ -1,32 +1,32 @@
 <template>
-  <el-container :class="{'hidesider':showe}">
-    <sidebar />
+  <el-container :class="{ hidesider: showe }">
+    <sidebar></sidebar>
     <el-container class="is-vertical">
-      <navbar />
-      <app-main />
+      <navbar></navbar>
+      <app-main></app-main>
     </el-container>
   </el-container>
 </template>
-<script type='text/javascript'>
-import sidebar from './sidebar'
-import navbar from './navbar'
-import appMain from './appMain'
+
+<script type="text/javascript">
+import sidebar from "./sidebar";
+import navbar from "./navbar";
+import appMain from "./appMain";
 
 export default {
-  name: 'Layout',
-  components: { navbar, appMain, sidebar },
+  name: "layout",
   data() {
-    return {}
+    return {};
   },
-
+  components: { navbar, appMain, sidebar },
   computed: {
     showe() {
-      return this.$store.state.sidebar.sbar_width
+      return this.$store.state.sidebar.sbar_width;
     }
   }
-}
+};
 </script>
-<style >
+<style>
 .hidesider .scroll-container,
 .hidesider .el-menu {
   width: 64px !important;

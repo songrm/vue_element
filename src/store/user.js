@@ -1,24 +1,24 @@
 function randomString(len) {
-  len = len || 32
-  var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
+  len = len || 32;
+  var $chars = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678";
 
-  var maxPos = $chars.length
+  var maxPos = $chars.length;
 
-  var pwd = ''
+  var pwd = "";
 
   for (var i = 0; i < len; i++) {
-    pwd += $chars.charAt(Math.floor(Math.random() * maxPos))
+    pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
   }
-  return pwd
+  return pwd;
 }
 
 function setCookie(c_name, c_pwd) {
-  var exdate = new Date() // 获取时间
+  var exdate = new Date(); // 获取时间
 
-  exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000) // 保存的天数
+  exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000); // 保存的天数
   // 字符串拼接cookie
-  window.document.cookie = 'userName' + '=' + c_name + ';path=/'
-  window.document.cookie = 'token' + '=' + c_pwd + ';path=/'
+  window.document.cookie = "userName" + "=" + c_name + ";path=/";
+  window.document.cookie = "token" + "=" + c_pwd + ";path=/";
 }
 
 // function getCookie(name) {
@@ -40,29 +40,24 @@ function setCookie(c_name, c_pwd) {
 
 const longin_info = {
   state: {
-    user: '',
+    user: "",
     gettoken: randomString(10)
-
   },
   mutations: {
     GET_USER: (state, val) => {
-      state.user = val.usexm
-      setCookie(state.user, state.gettoken)
+      state.user = val.usexm;
+      setCookie(state.user, state.gettoken);
     }
-
   },
   actions: {
-    get_user({
-      commit
-    }, data) {
-      commit('GET_USER', data)
+    get_user({ commit }, data) {
+      commit("GET_USER", data);
       // return new Promise(resolve=>{
       //   commit('GET_USER', data);
       //   resolve();
       // })
     }
-
   }
-}
+};
 
-export default longin_info
+export default longin_info;

@@ -2,91 +2,83 @@
   <el-container>
     <el-row class="se_wd">
       <el-col :span="24">
-
         <el-form
-          ref="ruleForm2"
           :model="ruleForm2"
-          :rules="rules2"
           status-icon
+          :rules="rules2"
+          ref="ruleForm2"
           class="demo-ruleForm"
         >
           <h3 class="title">系统登录</h3>
-          <el-form-item
-            label="用户名"
-            prop="usexm"
-          >
+          <el-form-item label="用户名" prop="usexm">
             <el-input
-              v-model="ruleForm2.usexm"
               type="text"
+              v-model="ruleForm2.usexm"
               auto-complete="off"
-            />
+            ></el-input>
           </el-form-item>
 
-          <el-form-item
-            label="密码"
-            prop="pass"
-          >
+          <el-form-item label="密码" prop="pass">
             <el-input
-              v-model="ruleForm2.pass"
               type="text"
+              v-model="ruleForm2.pass"
               auto-complete="off"
-            />
+            ></el-input>
           </el-form-item>
           <el-form-item>
             <el-button
-              :loading="l_load"
               type="primary"
-              @click="handleLogin(&quot;ruleForm2&quot;)"
-            >提交</el-button>
+              @click="handleLogin('ruleForm2')"
+              :loading="l_load"
+              >提交</el-button
+            >
           </el-form-item>
         </el-form>
-
       </el-col>
     </el-row>
   </el-container>
 </template>
-<script type='text/javascript'>
-// import { mapGetters, mapActions } from 'vuex'
+<script type="text/javascript">
+import { mapGetters, mapActions, mapState } from "vuex";
 
 export default {
-  name: 'Login',
+  name: "login",
   data() {
-    // let data_n = ''
+    let data_n = "";
     var validatename = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('不能为空123'))
+      if (value == "") {
+        callback(new Error("不能为空123"));
       } else {
-        callback()
+        callback();
       }
-    }
+    };
     var validatepwd = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('不能为空'))
+      if (value == "") {
+        callback(new Error("不能为空"));
       } else {
-        callback()
+        callback();
       }
-    }
-
+    };
     return {
       exdate: 1,
       ruleForm2: {
-        usexm: '',
-        pass: ''
+        usexm: "",
+        pass: ""
       },
       rules2: {
-        usexm: [{ validator: validatename, trigger: 'blur' }],
-        pass: [{ validator: validatepwd, trigger: 'blur' }]
+        usexm: [{ validator: validatename, trigger: "blur" }],
+        pass: [{ validator: validatepwd, trigger: "blur" }]
       },
       l_load: false
-    }
+    };
   },
 
   methods: {
     handleLogin(loginform) {
       this.$refs[loginform].validate(valid => {
         if (valid) {
-          this.l_load = true
-          // var self = this
+          this.l_load = true;
+          var self = this;
           // this.$axios.get('ceshi/login').then(function (response) {
           // 	const dataww = response.data.data.name;
           //
@@ -96,31 +88,30 @@ export default {
           // 		self.setCookie(self.ruleForm2.usexm,'8585');
           // 		self.$router.push({path:'/'})
           // 	}else {
-          // 		alert('请输入正确的名称／密码');
+          // 		alert("请输入正确的名称／密码");
           // 	}
           // 	// this.$store.dispatch('get_user',this.ruleForm2)
           //
           // })
-          this.$store.dispatch('get_user', this.ruleForm2)
-          // this.setCookie(this.ruleForm2.usexm, '8585');
-          this.$router.push({ path: '/' })
+          this.$store.dispatch("get_user", this.ruleForm2);
+          //this.setCookie(this.ruleForm2.usexm,'8585');
+          this.$router.push({ path: "/" });
         } else {
-          this.l_load = false
-          console.log('error submit!!')
-          return false
+          this.l_load = false;
+          console.log("error submit!!");
+          return false;
         }
-      })
+      });
     },
     setCookie(c_name, c_pwd) {
-      var exdate = new Date() // 获取时间
-
-      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000) // 保存的天数
-      // 字符串拼接cookie
-      window.document.cookie = 'userName' + '=' + c_name + ';path=/'
-      window.document.cookie = 'token' + '=' + c_pwd + ';path=/'
+      var exdate = new Date(); //获取时间
+      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000); //保存的天数
+      //字符串拼接cookie
+      window.document.cookie = "userName" + "=" + c_name + ";path=/";
+      window.document.cookie = "token" + "=" + c_pwd + ";path=/";
     }
   }
-}
+};
 </script>
 <style type="text/css">
 .se_wd {
