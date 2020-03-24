@@ -29,7 +29,7 @@
               ></el-switch>
             </div>
             <div class="anniu">
-              <p style="color:#999;font-size:13px;margin-bottom:10px;">
+              <p style="color: #999; font-size: 13px; margin-bottom: 10px;">
                 禁用状态
               </p>
               <el-switch
@@ -49,7 +49,7 @@
         <el-row class="martop20" :gutter="20">
           <el-col :span="8">
             <div class="">
-              <p style="color:#999;font-size:13px;margin-bottom:10px;">
+              <p style="color: #999; font-size: 13px; margin-bottom: 10px;">
                 由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器
               </p>
               <el-radio v-model="radio" label="1">备选项</el-radio>
@@ -62,9 +62,9 @@
                 禁用状态
               </p>
               <el-radio disabled v-model="radio1" label="1">备选项</el-radio>
-              <el-radio disabled v-model="radio1" label="选中且禁用"
-                >备选项</el-radio
-              >
+              <el-radio disabled v-model="radio1" label="选中且禁用">
+                备选项
+              </el-radio>
             </div>
           </el-col>
           <el-col :span="8">
@@ -110,16 +110,17 @@
                 :indeterminate="isIndeterminate"
                 v-model="checkAll"
                 @change="handleCheckAllChange"
-                >全选</el-checkbox
               >
+                全选
+              </el-checkbox>
               <div style="margin: 15px 0;"></div>
               <el-checkbox-group
                 v-model="checkedCities"
                 @change="handleCheckedCitiesChange"
               >
-                <el-checkbox v-for="city in cities" :label="city" :key="city">{{
-                  city
-                }}</el-checkbox>
+                <el-checkbox v-for="city in cities" :label="city" :key="city">
+                  {{ city }}
+                </el-checkbox>
               </el-checkbox-group>
             </div>
           </el-col>
@@ -185,49 +186,49 @@
 </template>
 <script>
 export default {
-  name: "switch",
+  name: 'switch',
   data() {
     return {
       value1: true,
       value2: true,
       value3: true,
-      radio: "1",
-      radio2: "3",
-      radio1: "选中且禁用",
+      radio: '1',
+      radio2: '3',
+      radio1: '选中且禁用',
       checked: true,
       checked1: true,
       checkAll: false,
       isIndeterminate: true,
-      cities: ["上海", "北京", "深圳"],
-      checkedCities: ["上海"],
-      pagenum: "",
-      pageshow: "",
+      cities: ['上海', '北京', '深圳'],
+      checkedCities: ['上海'],
+      pagenum: '',
+      pageshow: '',
       currentPage4: 1
-    };
+    }
   },
   methods: {
     handleCheckedCitiesChange(value) {
-      let checkedCount = value.length;
-      this.checkAll = checkedCount === this.cities.length;
+      const checkedCount = value.length
+      this.checkAll = checkedCount === this.cities.length
       this.isIndeterminate =
-        checkedCount > 0 && checkedCount < this.cities.length;
+        checkedCount > 0 && checkedCount < this.cities.length
     },
     handleCheckAllChange(val) {
-      this.checkedCities = val ? cityOptions : [];
-      this.isIndeterminate = false;
+      this.checkedCities = val ? cityOptions : []
+      this.isIndeterminate = false
     },
     handleSizeChange(val) {
-      this.pageshow = val;
-      console.log(`每页 ${val} 条`);
-      //console.log(val);
+      this.pageshow = val
+      console.log(`每页 ${val} 条`)
+      // console.log(val);
     },
     handleCurrentChange(val) {
-      this.pagenum = val;
-      console.log(`当前页: ${val}`);
-      //console.log(val);
+      this.pagenum = val
+      console.log(`当前页: ${val}`)
+      // console.log(val);
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .anniu {

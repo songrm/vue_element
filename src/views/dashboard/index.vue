@@ -2,9 +2,9 @@
   <div class="dashboard">
     <el-row :gutter="20">
       <el-col :span="4">
-        <el-button type="primary" class="pan-btn" @click="aa"
-          >components</el-button
-        >
+        <el-button type="primary" class="pan-btn" @click="aa">
+          components
+        </el-button>
       </el-col>
       <el-col :span="4">
         <el-button type="success" class="pan-btn">from</el-button>
@@ -82,16 +82,16 @@
 </template>
 <script type="text/javascript">
 // import todoList from "@/components/todoList/Todo.vue";
-import htable from "@/components/table/index";
+import htable from '@/components/table1/index'
 
 export default {
-  name: "dash",
+  name: 'dash',
   components: { htable },
   data() {
     return {
       startVal: 0,
-      endVal: ""
-    };
+      endVal: ''
+    }
   },
   mounted() {
     // var echarts = require("echarts/lib/echarts");
@@ -143,13 +143,13 @@ export default {
   },
   methods: {
     aa() {
-      this.endVal = 123;
+      this.endVal = 123
     }
   },
   created() {}
-};
+}
 </script>
-<style type="text/css">
+<style lang="scss">
 .pan-btn {
   font-size: 14px;
   color: #fff;
@@ -161,16 +161,22 @@ export default {
   transition: all 0.6s ease;
   position: relative;
   display: inline-block;
-  border: 0px;
 }
+
 .source {
   height: 400px;
   overflow: auto;
 }
+
 .source .el-alert {
   margin-top: 20px;
 }
-.dashboard .el-row {
-  margin-bottom: 20px;
+
+.dashboard {
+  margin: 20px;
+
+  .el-row {
+    margin-bottom: 20px;
+  }
 }
 </style>

@@ -2,16 +2,14 @@ import axios from "axios";
 import { Message } from "element-ui";
 import store from "@/store";
 import { getToken } from "@/utils/auth";
-import "../../servers/mongodb";
+
 
 const service = axios.create({
   // baseURL: process.env.BASE_API, // api的base_url
-  baseURL:
-    "https://www.easy-mock.com/mock/5b4eaf7956c59c6f562661db/component/01",
+  baseURL: "http://127.0.0.1:3000/api",
   timeout: 5000 // 请求超时时间
 });
-// https://www.easy-mock.com/mock/59fffc51ab1a494a37b36d3f/ceshi
-// https://www.easy-mock.com/mock/5b4eaf7956c59c6f562661db/component/01
+
 
 service.interceptors.request.use(
   config => {

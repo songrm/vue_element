@@ -88,13 +88,13 @@
                   <div class="direct-chat-info clearfix">
                     <span class="direct-chat-name pull-left">J·K</span>
                     <span class="direct-chat-timestamp pull-right"
-                      >10月10号 12：30</span
+                    >10月10号 12：30</span
                     >
                   </div>
 
                   <img
                     class="direct-chat-img"
-                    src="static/morentu_2.png"
+                    src="https://img.tebiemiao.cn/1581486772272.jpg"
                     alt="message user image"
                   />
                   <div class="direct-chat-text">
@@ -126,7 +126,7 @@
                 href="javascript:;"
                 @click="memor('A very important memorandum', '17-11-29')"
                 class="eidt_mem"
-                >look</a
+              >look</a
               >
             </div>
           </div>
@@ -165,17 +165,21 @@
           v-model="tck_time"
           type="date"
           placeholder="选择日期"
-          style="width:100%"
+          style="width: 100%;"
           class="marbottom20"
-        ></el-date-picker>
+        />
+
         <el-input type="textarea" v-model="tck_txt"></el-input>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false" size="medium"
-          >取 消</el-button
+        <el-button @click="dialogVisible = false"
+                   size="medium"
+        >取 消</el-button
         >
-        <el-button type="primary" @click="dialogVisible = false" size="medium"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible = false"
+                   size="medium"
+        >确 定</el-button
         >
       </span>
     </el-dialog>
@@ -186,43 +190,43 @@
 // import todoList from "@/components/TodoList/Todo";
 const table_da = [
   {
-    id: "工作日程安排",
-    name: "个人日程",
+    id: '工作日程安排',
+    name: '个人日程',
     amount1:
-      "记录个人事务的信息，相当于个人事务备忘录，分为个人日事务安排）、 个人周事务安排、个人月事务安排，指个人在一天的安排、一周的安排、一月的安排。到时会自动提醒"
+      '记录个人事务的信息，相当于个人事务备忘录，分为个人日事务安排）、 个人周事务安排、个人月事务安排，指个人在一天的安排、一周的安排、一月的安排。到时会自动提醒'
   },
   {
-    id: "工作日程安排",
-    name: "工作日程",
+    id: '工作日程安排',
+    name: '工作日程',
     amount1:
-      "记录部门的日程安排信息，一般是各部门负责人才有此功能权限.主管安排后到时系统会自动对部门人员进行任务提醒"
+      '记录部门的日程安排信息，一般是各部门负责人才有此功能权限.主管安排后到时系统会自动对部门人员进行任务提醒'
   },
   {
-    id: "内部邮件收发",
-    name: "接收邮件",
-    amount1: "接受内部邮件，对未读邮件进行查看，回复等各项操作"
+    id: '内部邮件收发',
+    name: '接收邮件',
+    amount1: '接受内部邮件，对未读邮件进行查看，回复等各项操作'
   },
   {
-    id: "内部邮件收发",
-    name: "发送邮件",
-    amount1: "写邮件、发送内部邮件"
+    id: '内部邮件收发',
+    name: '发送邮件',
+    amount1: '写邮件、发送内部邮件'
   },
   {
-    id: "内部邮件收发",
-    name: "收件箱",
-    amount1: "存放接收到的所有内部邮件，对收到的邮件进行管理"
+    id: '内部邮件收发',
+    name: '收件箱',
+    amount1: '存放接收到的所有内部邮件，对收到的邮件进行管理'
   }
-];
+]
 export default {
-  name: "dase",
+  name: 'dase',
   // components: { todoList },
   data() {
     return {
       tableData6: table_da,
       dialogVisible: false,
-      tck_txt: "",
-      tck_time: ""
-    };
+      tck_txt: '',
+      tck_time: ''
+    }
   },
   methods: {
     objectSpanMethod({ row, column, rowIndex, columnIndex }) {
@@ -231,25 +235,31 @@ export default {
           return {
             rowspan: 2,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
     memor(a, b) {
-      this.dialogVisible = true;
-      this.tck_txt = a;
-      this.tck_time = b;
+      this.dialogVisible = true
+      this.tck_txt = a
+      this.tck_time = b
     }
   }
-};
+}
 </script>
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style lang="scss" scoped>
 .v2 {
+  margin: 20px;
+
+  .marbottom20 {
+    margin-bottom: 20px;
+  }
+
   .icon-md {
     width: 60px;
     height: 60px;
@@ -258,31 +268,38 @@ export default {
     border-radius: 70px;
     text-align: center;
   }
+
   .top_ef02 {
     margin-bottom: 20px;
     margin-top: 20px;
   }
+
   .person_jies {
     display: block;
     height: 60px;
     position: relative;
   }
+
   .person_jies:hover {
     background-color: #f7f8fa;
   }
+
   .person_jiesle01 {
     width: 10px;
     height: 10px;
     border-radius: 10px;
     display: inline-block;
-    margin: 0px 20px;
+    margin: 0 20px;
   }
+
   .colorydu01 {
     background-color: #f47239;
   }
+
   .colorydu04 {
     background-color: #fa5a5a;
   }
+
   .person_jies_txt01 {
     width: 80%;
     display: inline-block;
@@ -291,16 +308,19 @@ export default {
     margin-top: 10px;
     font-size: 13px;
   }
+
   .memorandum_txt {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 5px;
   }
+
   .person_jies_all {
     height: 426px;
     overflow-y: auto;
   }
+
   .eidt_mem,
   .eidt_mem:hover {
     position: absolute;
@@ -312,35 +332,42 @@ export default {
     color: #ea6f5a;
     font-weight: 600;
   }
+
   .person_jies:hover .eidt_mem {
     display: block;
   }
+
   .datelis_dui {
     background-color: #fff;
     height: 385px;
     padding: 20px;
     overflow-y: auto;
   }
+
   .direct-chat-msg {
     margin-bottom: 10px;
   }
-  .direct-chat-msg:before,
-  .direct-chat-msg:after {
-    content: "";
+
+  .direct-chat-msg::before,
+  .direct-chat-msg::after {
+    content: '';
     display: table;
   }
+
   .direct-chat-info {
     display: block;
     margin-bottom: 2px;
     font-size: 12px;
     color: #4a4a4a;
   }
+
   .direct-chat-img {
     border-radius: 50%;
     float: left;
     width: 36px;
     height: 36px;
   }
+
   .direct-chat-text {
     border-radius: 5px;
     position: relative;
@@ -352,28 +379,32 @@ export default {
     font-size: 14px;
     word-wrap: break-word;
   }
-  .direct-chat-text:before {
+
+  .direct-chat-text::before {
     position: absolute;
     right: 100%;
     top: -2px;
-    content: " ";
+    content: ' ';
     pointer-events: none;
     background: url(/assets/detail03.png) no-repeat;
     width: 13px;
     height: 11px;
   }
+
   .direct-chat-timestamp {
     color: #4a4a4a;
     float: right;
   }
+
   .direct-chat-name {
     margin-left: 55px;
     color: #4a4a4a;
   }
+
   .direct-chat-mess-hu,
   .direct-chat-mess-hu:hover {
     position: absolute;
-    right: 0px;
+    right: 0;
     width: 60px;
     text-align: center;
     display: none;
@@ -385,6 +416,7 @@ export default {
     margin-top: -7.5px;
     text-decoration: none;
   }
+
   .direct-chat-text:hover .direct-chat-mess-hu {
     display: block;
   }

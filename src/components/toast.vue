@@ -6,19 +6,19 @@
 
 <script>
 export default {
-  name: "Toast",
+  name: 'Toast',
   data() {
     return {
-      text: "内容",
+      text: '内容',
       isShow: true,
       duration: 1500,
       a: {
-        color: "#fff",
-        backgroundColor: "#000000"
+        color: '#fff',
+        backgroundColor: '#000000'
       }
-    };
+    }
   }
-};
+}
 </script>
 <style>
 .toast {
@@ -26,9 +26,9 @@ export default {
   right: 20px;
   transform: translate(-50%, 0);
   margin-top: 5rem;
-  background: #000000;
+  background: #000;
   line-height: 0.7rem;
-  color: #ffffff;
+  color: #fff;
   padding: 1rem;
   top: 20px;
   width: 10em;

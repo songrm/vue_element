@@ -11,17 +11,19 @@
       <div slot="header" class="clearfix">
         <span>菜单</span>
         <el-button
-          style="float: right; padding: 3px 0"
+          style="float: right; padding: 3px 0;"
           type="text"
           @click="add_menu()"
-          >添加菜单</el-button
         >
+          添加菜单
+        </el-button>
         <el-button
-          style="float: right; margin:0px 20px;padding: 3px 0"
+          style="float: right; margin: 0 20px; padding: 3px 0;"
           type="text"
           @click="look_show('topmz')"
-          >预览</el-button
         >
+          预览
+        </el-button>
       </div>
       <div class="mn_table">
         <el-row class="mn_table_th">
@@ -54,12 +56,12 @@
           <el-col :span="6">选择模版</el-col>
           <el-col :span="6">
             <div class="">
-              <el-button type="text" @click="sit_menu(qd._id, qd._title)"
-                >保存</el-button
-              >
-              <el-button type="text" @click="delet_menu(qd._id, qd._title)"
-                >删除</el-button
-              >
+              <el-button type="text" @click="sit_menu(qd._id, qd._title)">
+                保存
+              </el-button>
+              <el-button type="text" @click="delet_menu(qd._id, qd._title)">
+                删除
+              </el-button>
               <el-button type="text">移动</el-button>
             </div>
           </el-col>
@@ -68,7 +70,7 @@
     </el-card>
 
     <div
-      style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251);margin-bottom:20px;"
+      style="padding: 10px; border-left: 5px solid rgb(218, 89, 89); background-color: rgb(251, 251, 251); margin-bottom: 20px;"
     >
       可预览
     </div>
@@ -98,146 +100,148 @@
   </div>
 </template>
 <script>
-import topmz from "@/components/menu/topmenu.vue";
-import footone from "@/components/menu/footone.vue";
+import topmz from '@/components/menu/topmenu.vue'
+import footone from '@/components/menu/footone.vue'
 export default {
-  name: "topmenu",
+  name: 'topmenu',
   data() {
     return {
       allComponents: [],
-      footer_bq: "",
+      footer_bq: '',
       menu_data: [],
-      footer_id: "1",
-      footer_title: "",
-      footer_copy: "",
-      footer_record: ""
-    };
+      footer_id: '1',
+      footer_title: '',
+      footer_copy: '',
+      footer_record: ''
+    }
   },
   components: { topmz, footone },
   methods: {
     menu_fr() {
-      var self = this;
-      this.$axios.get("/menulist").then(function(response) {
-        self.menu_data = response.data.data;
-        //console.log(response.data.data)
-      });
+      var self = this
+      this.$axios.get('/menulist').then(function(response) {
+        self.menu_data = response.data.data
+        // console.log(response.data.data)
+      })
     },
     save_f() {
-      //添加底部导航
+      // 添加底部导航
       var params = {
         _id: this.footer_id,
         _title: this.footer_title,
         _copyright: this.footer_copy,
         _record: this.footer_record
-      };
-      this.$axios.get("/footadd", { params: params }).then(function(response) {
-        console.log(response.data.data);
-      });
+      }
+      this.$axios.get('/footadd', { params: params }).then(function(response) {
+        console.log(response.data.data)
+      })
     },
     save_e() {
-      //修改底部导航
+      // 修改底部导航
       var params = {
         _id: this.footer_id,
         _title: this.footer_title,
         _copyright: this.footer_copy,
         _record: this.footer_record
-      };
-      this.$axios.get("/footdet", { params: params }).then(function(response) {
-        console.log(response.data.data);
-      });
+      }
+      this.$axios.get('/footdet', { params: params }).then(function(response) {
+        console.log(response.data.data)
+      })
     },
     look_show(name) {
-      console.log(this.allComponents);
-      this.allComponents.splice(0, this.allComponents.length);
-      console.log(this.allComponents);
+      console.log(this.allComponents)
+      this.allComponents.splice(0, this.allComponents.length)
+      console.log(this.allComponents)
       this.allComponents.push({
         component: name
-      });
+      })
     },
     sit_menu(num, txt) {
       var params = {
         _id: num,
         _title: txt
-      };
-      var self = this;
-      this.$axios.get("/menudet", { params: params }).then(function(response) {
-        if (response.data.data == "success") {
+      }
+      var self = this
+      this.$axios.get('/menudet', { params: params }).then(function(response) {
+        if (response.data.data === 'success') {
           self.$notify({
-            type: "success",
-            message: "保存成功",
+            type: 'success',
+            message: '保存成功',
             duration: 2000
-          });
+          })
         } else {
           self.$notify({
-            type: "error",
-            message: "保存失败！！！",
+            type: 'error',
+            message: '保存失败！！！',
             duration: 2000
-          });
+          })
         }
-      });
+      })
     },
     add_menu() {
       // 添加模块
-      var num_xb = this.menu_data.length + 2;
+      var num_xb = this.menu_data.length + 2
       this.menu_data.push({
         _id: num_xb,
-        _title: ""
-      });
+        _title: ''
+      })
       var params = {
         _id: num_xb,
-        _title: ""
-      };
-      var self = this;
-      this.$axios.get("/menuadd", { params: params }).then(function(response) {
-        if (response.data.data == "success") {
+        _title: ''
+      }
+      var self = this
+      this.$axios.get('/menuadd', { params: params }).then(function(response) {
+        if (response.data.data === 'success') {
           self.$notify({
-            type: "success",
-            message: " 添加成功；id 不可重复",
+            type: 'success',
+            message: ' 添加成功；id 不可重复',
             duration: 2000
-          });
+          })
         } else {
           self.$notify({
-            type: "error",
-            message: "保存失败！！！",
+            type: 'error',
+            message: '保存失败！！！',
             duration: 2000
-          });
+          })
         }
-      });
+      })
     },
     delet_menu(num, txt) {
-      console.log(txt);
-      const self = this;
+      console.log(txt)
+      const self = this
       this.$axios
-        .get("/menudelete", { params: { _id: num } })
+        .get('/menudelete', { params: { _id: num } })
         .then(function(response) {
-          if (response.data.data == "success") {
+          if (response.data.data === 'success') {
             self.$notify({
-              type: "success",
-              message: " 删除成功!!",
+              type: 'success',
+              message: ' 删除成功!!',
               duration: 2000
-            });
-            self.menu_fr(); //刷新列表
+            })
+            self.menu_fr() // 刷新列表
           } else {
             self.$notify({
-              type: "error",
-              message: "删除失败！！！",
+              type: 'error',
+              message: '删除失败！！！',
               duration: 2000
-            });
+            })
           }
-        });
+        })
     }
   },
   created() {
-    this.menu_fr();
+    this.menu_fr()
   }
-};
+}
 </script>
 <style lang="scss">
 .mn_table {
   overflow: hidden;
+
   .mn_table_td {
-    padding: 10px 0px 7px 1px;
+    padding: 10px 0 7px 1px;
   }
+
   .mn_table_th {
     background-color: #6f7e95;
     height: 40px;

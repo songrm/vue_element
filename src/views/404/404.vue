@@ -5,18 +5,18 @@
   </div>
 </template>
 <script>
-import img_404 from "@/assets/404.png";
+import img_404 from '@/assets/404.png'
 export default {
-  name: "404",
+  name: '404',
   data() {
     return {
       img_404
-    };
+    }
   }
-};
+}
 </script>
 <style>
 .pic-404 {
-  width: 100%;
+  width: 80%;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
   <div class="article">
     <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="18" :lg="18" class="marbottom20">
+      <el-col :xs="24"
+              :sm="24"
+              :md="18"
+              :lg="18"
+              class="marbottom20">
         <el-card class="box-card marbottom20">
           <div slot="header" class="clearfix">
             <span>添加文章</span>
@@ -65,7 +69,11 @@
         </el-card>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="6" :lg="6" class="marbottom20">
+      <el-col :xs="24"
+              :sm="24"
+              :md="6"
+              :lg="6"
+              class="marbottom20">
         <el-card class="box-card marbottom20">
           <div slot="header" class="clearfix">
             <span>Article Data</span>
@@ -85,22 +93,24 @@
 </template>
 
 <script>
-import Tinymce from "@/components/Tinymce";
+import Tinymce from '@/components/Tinymce'
 export default {
-  name: "add_bolg",
+  name: 'add_bolg',
   data() {
     return {
-      bolg_time: "",
-      bolg_title: "",
-      bolg_id: "",
-      bolg_type: "",
-      bolg_label: "",
-      bolg_author: "wanwan",
-      value: "",
-      content: ""
-    };
+      bolg_time: '',
+      bolg_title: '',
+      bolg_id: '',
+      bolg_type: '',
+      bolg_label: '',
+      bolg_author: 'wanwan',
+      value: '',
+      content: ''
+    }
   },
-  components: { Tinymce },
+  components: {
+    Tinymce
+  },
   methods: {
     tij: function() {
       var params = {
@@ -111,13 +121,15 @@ export default {
         _date: this.bolg_time,
         _type: this.bolg_type,
         _lable: this.bolg_label
-      };
-      //console.log(params)
+      }
+      // console.log(params)
       this.$axios
-        .get("/articleadd", { params: params })
+        .get('/articleadd', {
+          params: params
+        })
         .then(function(response) {
-          console.log(response.data);
-        });
+          console.log(response.data)
+        })
 
       // this.$axios({
       //   method: 'get',
@@ -132,8 +144,8 @@ export default {
     }
   },
   created() {}
-};
+}
 </script>
 <style lang="scss">
-@import "article.scss";
+@import 'article.scss';
 </style>

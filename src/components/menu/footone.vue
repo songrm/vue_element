@@ -3,31 +3,31 @@
     <span v-for="(qd, index) in fore" :key="index" class="nv_body_s">
       {{ qd._record }}{{ qd._copyright }}
     </span>
+    <!-- {{fore}}
+    <h1 @click="menu_fr()">点击我====</h1> -->
   </div>
 </template>
 <script>
+import { footList } from '@/api/index'
 export default {
-  name: "Footone",
+  name: 'Footone',
   data() {
     return {
       fore: [],
-      copy: ""
-    };
+      copy: ''
+    }
   },
   created() {
-    this.menu_fr();
+    this.menu_fr()
   },
   methods: {
-    menu_fr() {
-      var self = this;
-
-      this.$axios.get("/footlist").then(function(response) {
-        self.fore = response.data.data;
-        // console.log(response.data.data)
-      });
+    async menu_fr() {
+      const { data } = await footList()
+      // console.log('1212' + data)
+      this.fore = data
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .foot_one {

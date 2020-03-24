@@ -40,15 +40,15 @@
             <div class="lable marbottom20">
               在保留当前页面状态的情况下，告知用户并承载相关操作
             </div>
-            <el-button type="text" @click="dialogVisible = true"
-              >点击打开 Dialog</el-button
-            >
-            <el-button type="text" @click="dialogVisible01 = true"
-              >打开嵌套表格的 Dialog</el-button
-            >
-            <el-button type="text" @click="dialogVisible03 = true"
-              >打开嵌套表单的 Dialog</el-button
-            >
+            <el-button type="text" @click="dialogVisible = true">
+              点击打开 Dialog
+            </el-button>
+            <el-button type="text" @click="dialogVisible01 = true">
+              打开嵌套表格的 Dialog
+            </el-button>
+            <el-button type="text" @click="dialogVisible03 = true">
+              打开嵌套表单的 Dialog
+            </el-button>
           </div>
         </el-card>
       </el-col>
@@ -128,13 +128,13 @@
               v-model="visible2"
             >
               <p>这是一段内容这是一段内容确定删除吗？</p>
-              <div style="text-align: right; margin: 0">
-                <el-button size="mini" type="text" @click="visible2 = false"
-                  >取消</el-button
-                >
-                <el-button type="primary" size="mini" @click="visible2 = false"
-                  >确定</el-button
-                >
+              <div style="text-align: right; margin: 0;">
+                <el-button size="mini" type="text" @click="visible2 = false">
+                  取消
+                </el-button>
+                <el-button type="primary" size="mini" @click="visible2 = false">
+                  确定
+                </el-button>
               </div>
             </el-popover>
             <el-button v-popover:popover1>hover 激活</el-button>
@@ -149,8 +149,9 @@
       <span>这是一段信息</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible = false"
+        >确 定</el-button
         >
       </span>
     </el-dialog>
@@ -168,13 +169,14 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible03 = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible03 = false"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible03 = false"
+        >确 定</el-button
         >
       </span>
     </el-dialog>
     <el-dialog title="个人信息" :visible.sync="dialogVisible01">
-      <table style="width:100%">
+      <table style="width: 100%;">
         <tbody>
           <tr>
             <td>姓名</td>
@@ -190,8 +192,9 @@
       </table>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible01 = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible01 = false"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible01 = false"
+        >确 定</el-button
         >
       </span>
     </el-dialog>
@@ -199,7 +202,7 @@
 </template>
 <script>
 export default {
-  name: "model",
+  name: 'model',
   data() {
     return {
       dialogVisible: false,
@@ -207,52 +210,52 @@ export default {
       dialogVisible03: false,
       visible2: false,
       form: {
-        name: "",
-        region: ""
+        name: '',
+        region: ''
       },
-      formLabelWidth: "100px"
-    };
+      formLabelWidth: '100px'
+    }
   },
   methods: {
     open2() {
-      this.$message.success("这是一条消息提示");
+      this.$message.success('这是一条消息提示')
     },
     open3() {
-      this.$message.warning("这是一条消息提示");
+      this.$message.warning('这是一条消息提示')
     },
     open() {
-      this.$message("这是一条消息提示");
+      this.$message('这是一条消息提示')
     },
     open4() {
-      this.$message.error("这是一条消息提示");
+      this.$message.error('这是一条消息提示')
     },
     open5() {
-      this.$alert("这是一段内容", "标题名称", {
-        confirmButtonText: "确定",
+      this.$alert('这是一段内容', '标题名称', {
+        confirmButtonText: '确定',
         callback: action => {}
-      });
+      })
     },
     open6() {
       this.$notify({
-        title: "成功",
-        message: "这是一条成功的提示消息",
-        type: "success"
-      });
+        title: '成功',
+        message: '这是一条成功的提示消息',
+        type: 'success'
+      })
     },
     open7() {
       this.$notify({
-        title: "警告",
-        message: "这是一条成功的提示消息",
-        type: "warning"
-      });
+        title: '警告',
+        message: '这是一条成功的提示消息',
+        type: 'warning'
+      })
     },
     open8() {
       this.$notify({
-        title: "错误",
-        message: "这是一条成功的提示消息",
-        type: "error"
-      });
+        title: '错误',
+        message: '这是一条成功的提示消息',
+        type: 'error'
+      })
     }
   }
-};
+}
 </script>

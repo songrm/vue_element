@@ -35,54 +35,54 @@
   </div>
 </template>
 <script>
-import myupload from "vue-image-crop-upload";
+import myupload from 'vue-image-crop-upload'
 export default {
-  name: "upload",
+  name: 'upload',
   data() {
     return {
-      imageUrl: "",
+      imageUrl: '',
       show: false,
-      cropsrc: ""
-    };
+      cropsrc: ''
+    }
   },
-  components: { "my-upload": myupload },
+  components: { 'my-upload': myupload },
   methods: {
     handleAvatarSuccess(res, file) {
-      //文件上传成功
-      this.imageUrl = URL.createObjectURL(file.raw);
+      // 文件上传成功
+      this.imageUrl = URL.createObjectURL(file.raw)
     },
     beforeAvatarUpload(file) {
-      ///上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传
-      const isJPG = file.type === "image/jpeg";
-      const isLt2M = file.size / 1024 / 1024 < 2;
+      /// 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传
+      const isJPG = file.type === 'image/jpeg'
+      const isLt2M = file.size / 1024 / 1024 < 2
 
       if (!isJPG) {
-        this.$message.error("上传头像图片只能是 JPG 格式!");
+        this.$message.error('上传头像图片只能是 JPG 格式!')
       }
       if (!isLt2M) {
-        this.$message.error("上传头像图片大小不能超过 2MB!");
+        this.$message.error('上传头像图片大小不能超过 2MB!')
       }
-      return isJPG && isLt2M;
+      return isJPG && isLt2M
     },
     toggleshow() {
-      this.show = !this.show;
+      this.show = !this.show
     },
     cropSuccess(imgDataUrl, field) {
-      console.log("-------- crop success --------");
-      this.imgDataUrl = imgDataUrl;
+      console.log('-------- crop success --------')
+      this.imgDataUrl = imgDataUrl
     },
     cropUploadSuccess(jsonData, field) {
-      console.log("-------- upload success --------");
-      console.log(jsonData);
-      console.log("field: " + field);
+      console.log('-------- upload success --------')
+      console.log(jsonData)
+      console.log('field: ' + field)
     },
     cropUploadFail(status, field) {
-      console.log("-------- upload fail --------");
-      console.log(status);
-      console.log("field: " + field);
+      console.log('-------- upload fail --------')
+      console.log(status)
+      console.log('field: ' + field)
     }
   }
-};
+}
 </script>
 
 <style>
@@ -93,9 +93,11 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .avatar-uploader .el-upload:hover {
   border-color: #409eff;
 }
+
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
@@ -104,6 +106,7 @@ export default {
   line-height: 178px;
   text-align: center;
 }
+
 .avatar {
   width: 178px;
   height: 178px;

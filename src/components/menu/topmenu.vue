@@ -7,27 +7,30 @@
   </div>
 </template>
 <script>
+import { menulist } from '@/api/index'
 export default {
-  name: "Topmz",
+  name: 'Topmz',
   data() {
     return {
       menu_data: []
-    };
+    }
   },
   created() {
-    this.menu_fr();
+    this.menu_fr()
   },
   methods: {
-    menu_fr() {
-      var self = this;
+    async menu_fr() {
+      const { data } = await menulist()
+      this.menu_data = data
+      // var self = this;
 
-      this.$axios.get("/menulist").then(function(response) {
-        self.menu_data = response.data.data;
-        // console.log(response.data.data)
-      });
+      // this.$axios.get("/menulist").then(function(response) {
+      //   self.menu_data = response.data.data;
+
+      // });
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .nv_body {

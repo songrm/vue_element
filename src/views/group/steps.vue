@@ -7,8 +7,8 @@
           <div style="padding: 14px;">
             <span>好吃的汉堡</span>
             <div class="bottom clearfix">
-              <span style="font-size:12px;color:#999"
-                >Digital Marketing Director</span
+              <span style="font-size: 12px; color: #999;"
+              >Digital Marketing Director</span
               >
             </div>
           </div>
@@ -44,6 +44,7 @@
               <div
                 class="timeline-item timeline-item-right"
                 v-for="step_d in steps"
+                :key="step_d"
               >
                 <div class="timeline-item-icon bg-info">
                   <svg class="icon" aria-hidden="true">
@@ -71,43 +72,43 @@
   </div>
 </template>
 <script>
-import personi from "@/assets/bg7.jpg";
+import personi from '@/assets/bg7.jpg'
 export default {
-  name: "steps",
+  name: 'steps',
   data() {
     return {
       personi,
       activeNames: [],
       steps: [
         {
-          img: "#icon-wancheng",
+          img: '#icon-wancheng',
           context:
             "<a href='javascript:void(0)'> Smith Johnson </a> added to friends<img src='static/b01.jpg'>"
         },
         {
-          img: "#icon-star-opp",
+          img: '#icon-star-opp',
           context:
-            " <div>Smith Johnson</div>这里是文本描述；这里是文本描述；这里是文本描述；"
+            ' <div>Smith Johnson</div>这里是文本描述；这里是文本描述；这里是文本描述；'
         },
         {
-          img: "#icon-jushoucanggift",
+          img: '#icon-jushoucanggift',
           context:
-            " <div>Smith Johnson</div>这里是文本描述；<br>这里是文本描述；<br>这里是文本描述；"
+            ' <div>Smith Johnson</div>这里是文本描述；<br>这里是文本描述；<br>这里是文本描述；'
         },
         {
-          img: "#icon-wancheng1",
+          img: '#icon-wancheng1',
           context:
-            " <div>Smith Johnson</div>这里是文本描述；<br>这里是文本描述；<br>这里是文本描述；"
+            ' <div>Smith Johnson</div>这里是文本描述；<br>这里是文本描述；<br>这里是文本描述；'
         }
       ]
-    };
+    }
   },
   methods: {
     gl(con) {
-      return con;
+      return con
     }
   }
-};
+}
 </script>
 <style lang="css">
 @import 'steps.css';

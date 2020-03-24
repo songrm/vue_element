@@ -20,18 +20,18 @@
                 ></el-input>
               </el-col>
               <el-col :span="8">
-                <el-button type="primary" size="medium" @click="spus"
-                  >搜索</el-button
-                >
-                <el-button type="primary" size="medium" @click="spus_add"
-                  >测试添加</el-button
-                >
+                <el-button type="primary" size="medium" @click="spus">
+                  搜索
+                </el-button>
+                <el-button type="primary" size="medium" @click="spus_add">
+                  测试添加
+                </el-button>
               </el-col>
             </el-row>
           </div>
           <el-table
             :data="article_data"
-            style="width:100%"
+            style="width: 100%;"
             border
             class="martop20"
           >
@@ -39,9 +39,9 @@
             <el-table-column prop="_type" label="类型"></el-table-column>
             <el-table-column label="标签">
               <template slot-scope="scope">
-                <el-tag :type="scope.row._lable | label_e">{{
-                  scope.row._lable
-                }}</el-tag>
+                <el-tag :type="scope.row._lable | label_e">
+                  {{ scope.row._lable }}
+                </el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="_date" label="时间"></el-table-column>
@@ -51,17 +51,19 @@
                   @click="handleClick(scope.row)"
                   type="text"
                   size="small"
-                  >查看</el-button
                 >
-                <el-button type="text" size="small" @click="biji(scope.row)"
-                  >编辑</el-button
-                >
+                  查看
+                </el-button>
+                <el-button type="text" size="small" @click="biji(scope.row)">
+                  编辑
+                </el-button>
                 <el-button
                   type="text"
                   size="small"
                   @click="delet_art(scope.row)"
-                  >删除</el-button
                 >
+                  删除
+                </el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -85,9 +87,12 @@
             <span>排行榜</span>
           </div>
           <div class="ark_list_m">
-            <a href="javascript:;" v-for="tit in article_data">{{
-              tit._name
-            }}</a>
+            <a
+              href="javascript:;"
+              v-for="tit in article_data"
+              :key="tit._name"
+            >{{ tit._name }}</a
+            >
           </div>
         </el-card>
       </el-col>
@@ -95,121 +100,123 @@
     <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
       <span>{{ tishi }}</span>
 
-      <span slot="footer" class="dialog-footer" v-if="foot == 'xiugai'">
+      <span slot="footer" class="dialog-footer" v-if="foot === 'xiugai'">
         <el-button @click="dialogVisible = false">取 消--xiugai</el-button>
-        <el-button type="primary" @click="dialogVisible = false"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible = false"
+        >确 定</el-button
         >
       </span>
-      <span slot="footer" class="dialog-footer" v-if="foot == 'look'">
+      <span slot="footer" class="dialog-footer" v-if="foot === 'look'">
         <el-button @click="dialogVisible = false">取 消 -look</el-button>
-        <el-button type="primary" @click="dialogVisible = false"
-          >确 定</el-button
+        <el-button type="primary"
+                   @click="dialogVisible = false"
+        >确 定</el-button
         >
       </span>
     </el-dialog>
   </div>
 </template>
 <script>
-const data = [
-  { title: "today home1", type: "java", lable: "重要", time: "2012-09-08" },
-  { title: "today home2", type: "java", lable: "一般", time: "2012-09-08" },
-  { title: "today home3", type: "java", lable: "删除", time: "2012-09-08" }
-];
+// const data = [
+//   { title: 'today home1', type: 'java', lable: '重要', time: '2012-09-08' },
+//   { title: 'today home2', type: 'java', lable: '一般', time: '2012-09-08' },
+//   { title: 'today home3', type: 'java', lable: '删除', time: '2012-09-08' }
+// ]
 export default {
-  name: "article",
+  name: 'article',
   data() {
     return {
       article_data: [],
       dialogVisible: false,
-      tishi: "",
-      foot: ""
-    };
+      tishi: '',
+      foot: ''
+    }
   },
   methods: {
     handleClick(obj) {
-      //查看事件
+      // 查看事件
       this.$router.push({
-        path: "/group/bolg_list",
-        name: "bolg_list",
+        path: '/group/bolg_list',
+        name: 'bolg_list',
         params: obj,
         query: {
           id: obj._id
         }
-      });
+      })
     },
     res_b() {
-      //加载列表事件
-      var self = this;
-      this.$axios.get("/articlelist").then(function(response) {
-        self.article_data = response.data.data;
-      });
+      // 加载列表事件
+      var self = this
+      this.$axios.get('/articlelist').then(function(response) {
+        self.article_data = response.data.data
+      })
     },
     spus() {
-      //搜索事件
+      // 搜索事件
       var params = {
-        _id: "001"
-      };
+        _id: '001'
+      }
       this.$axios
-        .get("/articleedit", { params: params })
+        .get('/articleedit', { params: params })
         .then(function(response) {
-          console.log(response.data);
-        });
+          console.log(response.data)
+        })
     },
     delet_art(obj) {
-      //删除事件
-      console.log("删除===" + obj);
+      // 删除事件
+      console.log('删除===' + obj)
       var params = {
         _id: obj._id
-      };
-      var self = this;
+      }
+      var self = this
       this.$axios
-        .get("/articledel", { params: params })
+        .get('/articledel', { params: params })
         .then(function(response) {
-          console.log(response.data);
-          if (response.data.success == 1) {
-            //删除成功
-            self.res_b();
+          console.log(response.data)
+          if (response.data.success === 1) {
+            // 删除成功
+            self.res_b()
             self.$message({
-              message: "删除成功",
-              type: "success"
-            });
+              message: '删除成功',
+              type: 'success'
+            })
           } else {
-            //删除失败
-            self.$message.error("删除失败，请检查错误信息");
+            // 删除失败
+            self.$message.error('删除失败，请检查错误信息')
           }
-        });
+        })
     },
     biji(s) {
-      this.dialogVisible = true;
-      this.foot = "xiugai";
+      this.dialogVisible = true
+      this.foot = 'xiugai'
       // console.log(s._name)
-      this.tishi = s._name;
+      this.tishi = s._name
     },
     spus_add() {
-      this.dialogVisible = true;
-      this.tishi = "测试弹出框——底部共用";
-      this.foot = "look";
+      this.dialogVisible = true
+      this.tishi = '测试弹出框——底部共用'
+      this.foot = 'look'
     }
   },
   created() {
-    this.res_b();
+    this.res_b()
   },
   filters: {
     label_e(a) {
       const lable = {
-        重要: "success",
-        一般: "warning",
-        删除: "danger"
-      };
-      return lable[a];
+        重要: 'success',
+        一般: 'warning',
+        删除: 'danger'
+      }
+      return lable[a]
     }
   },
   watch: {
-    $route: "res_b"
+    $route: 'res_b'
   }
-};
+}
 </script>
 <style lang="scss">
-@import "article.scss";
+@import 'article.scss';
 </style>
